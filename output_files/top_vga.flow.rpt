@@ -1,5 +1,5 @@
 Flow report for top_vga
-Sun Apr 19 23:53:09 2026
+Sat Apr 25 16:02:26 2026
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -40,7 +40,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Sun Apr 19 23:53:09 2026       ;
+; Flow Status                        ; Successful - Sat Apr 25 16:02:26 2026       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; top_vga                                     ;
 ; Top-level Entity Name              ; top_vga                                     ;
@@ -51,7 +51,7 @@ refer to the applicable agreement for further details.
 ;     Total combinational functions  ; 48 / 28,848 ( < 1 % )                       ;
 ;     Dedicated logic registers      ; 20 / 28,848 ( < 1 % )                       ;
 ; Total registers                    ; 20                                          ;
-; Total pins                         ; 30 / 533 ( 6 % )                            ;
+; Total pins                         ; 31 / 533 ( 6 % )                            ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 608,256 ( 0 % )                         ;
 ; Embedded Multiplier 9-bit elements ; 0 / 132 ( 0 % )                             ;
@@ -64,7 +64,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/19/2026 23:52:36 ;
+; Start date & time ; 04/25/2026 16:01:55 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; top_vga             ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 102120464240613.177665355627137        ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 102120464240613.177714371457921        ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                            ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)              ; <None>        ; --          ; --             ;
 ; EDA_TIME_SCALE                      ; 1 ps                                   ; --            ; --          ; eda_simulation ;
@@ -98,12 +98,12 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:16     ; 1.0                     ; 916 MB              ; 00:00:36                           ;
-; Fitter               ; 00:00:08     ; 1.0                     ; 1259 MB             ; 00:00:09                           ;
-; Assembler            ; 00:00:02     ; 1.0                     ; 791 MB              ; 00:00:02                           ;
-; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 801 MB              ; 00:00:02                           ;
-; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 1026 MB             ; 00:00:01                           ;
-; Total                ; 00:00:29     ; --                      ; --                  ; 00:00:50                           ;
+; Analysis & Synthesis ; 00:00:14     ; 1.0                     ; 917 MB              ; 00:00:32                           ;
+; Fitter               ; 00:00:09     ; 1.0                     ; 1264 MB             ; 00:00:09                           ;
+; Assembler            ; 00:00:02     ; 1.0                     ; 794 MB              ; 00:00:02                           ;
+; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 800 MB              ; 00:00:02                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 1025 MB             ; 00:00:01                           ;
+; Total                ; 00:00:28     ; --                      ; --                  ; 00:00:46                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

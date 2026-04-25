@@ -16,7 +16,7 @@
 // PROGRAM "Quartus Prime"
 // VERSION "Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition"
 
-// DATE "04/19/2026 23:53:09"
+// DATE "04/25/2026 16:02:26"
 
 // 
 // Device: Altera EP4CE30F29C7 Package FBGA780
@@ -30,6 +30,7 @@
 
 module top_vga (
 	CLOCK_50,
+	KEY,
 	VGA_HS,
 	VGA_VS,
 	VGA_CLK,
@@ -39,6 +40,7 @@ module top_vga (
 	VGA_G,
 	VGA_B);
 input 	CLOCK_50;
+input 	[0:0] KEY;
 output 	VGA_HS;
 output 	VGA_VS;
 output 	VGA_CLK;
@@ -49,27 +51,27 @@ output 	[7:0] VGA_G;
 output 	[7:0] VGA_B;
 
 // Design Ports Information
-// VGA_HS	=>  Location: PIN_K4,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// VGA_VS	=>  Location: PIN_F2,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// VGA_HS	=>  Location: PIN_D10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// VGA_VS	=>  Location: PIN_F11,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // VGA_CLK	=>  Location: PIN_AE5,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// VGA_BLANK_N	=>  Location: PIN_B4,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// VGA_BLANK_N	=>  Location: PIN_F12,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // VGA_SYNC_N	=>  Location: PIN_A23,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // VGA_R[0]	=>  Location: PIN_AC10,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// VGA_R[1]	=>  Location: PIN_AA26,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// VGA_R[2]	=>  Location: PIN_C4,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// VGA_R[1]	=>  Location: PIN_V22,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// VGA_R[2]	=>  Location: PIN_A8,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // VGA_R[3]	=>  Location: PIN_Y13,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// VGA_R[4]	=>  Location: PIN_AB6,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// VGA_R[5]	=>  Location: PIN_D8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// VGA_R[4]	=>  Location: PIN_C6,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// VGA_R[5]	=>  Location: PIN_B18,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // VGA_R[6]	=>  Location: PIN_AG26,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// VGA_R[7]	=>  Location: PIN_F3,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// VGA_G[0]	=>  Location: PIN_M7,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// VGA_G[1]	=>  Location: PIN_J7,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// VGA_G[2]	=>  Location: PIN_H6,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// VGA_G[3]	=>  Location: PIN_K3,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// VGA_G[4]	=>  Location: PIN_M8,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// VGA_G[5]	=>  Location: PIN_L4,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// VGA_G[6]	=>  Location: PIN_L7,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// VGA_G[7]	=>  Location: PIN_C6,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// VGA_R[7]	=>  Location: PIN_F10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// VGA_G[0]	=>  Location: PIN_B7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// VGA_G[1]	=>  Location: PIN_G12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// VGA_G[2]	=>  Location: PIN_E7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// VGA_G[3]	=>  Location: PIN_F8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// VGA_G[4]	=>  Location: PIN_G11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// VGA_G[5]	=>  Location: PIN_G10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// VGA_G[6]	=>  Location: PIN_F7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// VGA_G[7]	=>  Location: PIN_E11,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // VGA_B[0]	=>  Location: PIN_AH10,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // VGA_B[1]	=>  Location: PIN_AE6,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // VGA_B[2]	=>  Location: PIN_C23,	 I/O Standard: 2.5 V,	 Current Strength: Default
@@ -77,7 +79,8 @@ output 	[7:0] VGA_B;
 // VGA_B[4]	=>  Location: PIN_AF22,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // VGA_B[5]	=>  Location: PIN_AG10,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // VGA_B[6]	=>  Location: PIN_D9,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// VGA_B[7]	=>  Location: PIN_G7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// VGA_B[7]	=>  Location: PIN_E12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// KEY[0]	=>  Location: PIN_AH14,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // CLOCK_50	=>  Location: PIN_J1,	 I/O Standard: 2.5 V,	 Current Strength: Default
 
 
@@ -107,90 +110,92 @@ wire \~ALTERA_nCEO~~padout ;
 wire \~ALTERA_DCLK~~obuf_o ;
 wire \~ALTERA_nCEO~~obuf_o ;
 wire \CLOCK_50~input_o ;
-wire \my_pll|altpll_component|auto_generated|wire_pll1_fbout ;
-wire \my_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ;
-wire \scan_controller|Add0~0_combout ;
-wire \scan_controller|Add0~1 ;
-wire \scan_controller|Add0~2_combout ;
-wire \scan_controller|Add0~3 ;
-wire \scan_controller|Add0~4_combout ;
-wire \scan_controller|Add0~5 ;
-wire \scan_controller|Add0~6_combout ;
-wire \scan_controller|Add0~7 ;
-wire \scan_controller|Add0~8_combout ;
-wire \scan_controller|Add0~9 ;
-wire \scan_controller|Add0~10_combout ;
-wire \scan_controller|Equal0~1_combout ;
-wire \scan_controller|Equal0~0_combout ;
-wire \scan_controller|Equal0~2_combout ;
-wire \scan_controller|h_count~0_combout ;
-wire \scan_controller|Add0~11 ;
-wire \scan_controller|Add0~12_combout ;
-wire \scan_controller|Add0~13 ;
-wire \scan_controller|Add0~14_combout ;
-wire \scan_controller|Add0~15 ;
-wire \scan_controller|Add0~16_combout ;
-wire \scan_controller|h_count~1_combout ;
-wire \scan_controller|Add0~17 ;
-wire \scan_controller|Add0~18_combout ;
-wire \scan_controller|h_count~2_combout ;
-wire \scan_controller|hsync~0_combout ;
-wire \scan_controller|hsync~1_combout ;
-wire \scan_controller|Add1~0_combout ;
-wire \scan_controller|v_count~3_combout ;
-wire \scan_controller|Add1~1 ;
-wire \scan_controller|Add1~2_combout ;
-wire \scan_controller|Add1~3 ;
-wire \scan_controller|Add1~5 ;
-wire \scan_controller|Add1~6_combout ;
-wire \scan_controller|v_count~2_combout ;
-wire \scan_controller|Add1~7 ;
-wire \scan_controller|Add1~8_combout ;
-wire \scan_controller|Add1~9 ;
-wire \scan_controller|Add1~10_combout ;
-wire \scan_controller|Add1~11 ;
-wire \scan_controller|Add1~12_combout ;
-wire \scan_controller|Add1~13 ;
-wire \scan_controller|Add1~14_combout ;
-wire \scan_controller|Equal1~1_combout ;
-wire \scan_controller|Equal1~0_combout ;
-wire \scan_controller|Add1~15 ;
-wire \scan_controller|Add1~16_combout ;
-wire \scan_controller|Add1~17 ;
-wire \scan_controller|Add1~18_combout ;
-wire \scan_controller|v_count~0_combout ;
-wire \scan_controller|Equal1~2_combout ;
-wire \scan_controller|Add1~4_combout ;
-wire \scan_controller|v_count~1_combout ;
-wire \scan_controller|vsync~0_combout ;
+wire \meu_pll|altpll_component|auto_generated|wire_pll1_fbout ;
+wire \meu_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ;
+wire \controlador_de_varredura|Add0~0_combout ;
+wire \KEY[0]~input_o ;
+wire \KEY[0]~inputclkctrl_outclk ;
+wire \controlador_de_varredura|Add0~1 ;
+wire \controlador_de_varredura|Add0~2_combout ;
+wire \controlador_de_varredura|Add0~3 ;
+wire \controlador_de_varredura|Add0~4_combout ;
+wire \controlador_de_varredura|Add0~5 ;
+wire \controlador_de_varredura|Add0~6_combout ;
+wire \controlador_de_varredura|Add0~7 ;
+wire \controlador_de_varredura|Add0~8_combout ;
+wire \controlador_de_varredura|Add0~9 ;
+wire \controlador_de_varredura|Add0~10_combout ;
+wire \controlador_de_varredura|Add0~15 ;
+wire \controlador_de_varredura|Add0~16_combout ;
+wire \controlador_de_varredura|h_count~2_combout ;
+wire \controlador_de_varredura|Add0~17 ;
+wire \controlador_de_varredura|Add0~18_combout ;
+wire \controlador_de_varredura|h_count~1_combout ;
+wire \controlador_de_varredura|Equal0~1_combout ;
+wire \controlador_de_varredura|Equal0~0_combout ;
+wire \controlador_de_varredura|Equal0~2_combout ;
+wire \controlador_de_varredura|h_count~0_combout ;
+wire \controlador_de_varredura|Add0~11 ;
+wire \controlador_de_varredura|Add0~12_combout ;
+wire \controlador_de_varredura|Add0~13 ;
+wire \controlador_de_varredura|Add0~14_combout ;
+wire \controlador_de_varredura|hsync~0_combout ;
+wire \controlador_de_varredura|hsync~1_combout ;
+wire \controlador_de_varredura|Add1~15 ;
+wire \controlador_de_varredura|Add1~16_combout ;
+wire \controlador_de_varredura|Equal1~1_combout ;
+wire \controlador_de_varredura|Add1~17 ;
+wire \controlador_de_varredura|Add1~18_combout ;
+wire \controlador_de_varredura|v_count~0_combout ;
+wire \controlador_de_varredura|Add1~0_combout ;
+wire \controlador_de_varredura|v_count~3_combout ;
+wire \controlador_de_varredura|Add1~1 ;
+wire \controlador_de_varredura|Add1~2_combout ;
+wire \controlador_de_varredura|Equal1~0_combout ;
+wire \controlador_de_varredura|Add1~3 ;
+wire \controlador_de_varredura|Add1~4_combout ;
+wire \controlador_de_varredura|v_count~1_combout ;
+wire \controlador_de_varredura|Equal1~2_combout ;
+wire \controlador_de_varredura|Add1~5 ;
+wire \controlador_de_varredura|Add1~6_combout ;
+wire \controlador_de_varredura|v_count~2_combout ;
+wire \controlador_de_varredura|Add1~7 ;
+wire \controlador_de_varredura|Add1~8_combout ;
+wire \controlador_de_varredura|Add1~9 ;
+wire \controlador_de_varredura|Add1~10_combout ;
+wire \controlador_de_varredura|Add1~11 ;
+wire \controlador_de_varredura|Add1~12_combout ;
+wire \controlador_de_varredura|Add1~13 ;
+wire \controlador_de_varredura|Add1~14_combout ;
 wire \always0~0_combout ;
-wire \scan_controller|vsync~1_combout ;
-wire \my_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_e_VGA_CLK_outclk ;
-wire \scan_controller|video_on~0_combout ;
-wire \scan_controller|video_on~1_combout ;
+wire \controlador_de_varredura|vsync~0_combout ;
+wire \controlador_de_varredura|vsync~1_combout ;
+wire \meu_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_e_VGA_CLK_outclk ;
+wire \controlador_de_varredura|video_on~0_combout ;
+wire \controlador_de_varredura|video_on~1_combout ;
+wire \LessThan0~0_combout ;
+wire \LessThan2~0_combout ;
+wire \always0~1_combout ;
 wire \always0~2_combout ;
 wire \always0~3_combout ;
-wire \LessThan2~0_combout ;
-wire \LessThan0~0_combout ;
-wire \always0~1_combout ;
 wire \always0~4_combout ;
 wire \VGA_R~2_combout ;
 wire \VGA_G~2_combout ;
-wire [9:0] \scan_controller|v_count ;
-wire [9:0] \scan_controller|h_count ;
-wire [4:0] \my_pll|altpll_component|auto_generated|wire_pll1_clk ;
+wire [9:0] \controlador_de_varredura|v_count ;
+wire [9:0] \controlador_de_varredura|h_count ;
+wire [4:0] \meu_pll|altpll_component|auto_generated|wire_pll1_clk ;
 
-wire [4:0] \my_pll|altpll_component|auto_generated|pll1_CLK_bus ;
+wire [4:0] \meu_pll|altpll_component|auto_generated|pll1_CLK_bus ;
 
-assign \my_pll|altpll_component|auto_generated|wire_pll1_clk [0] = \my_pll|altpll_component|auto_generated|pll1_CLK_bus [0];
-assign \my_pll|altpll_component|auto_generated|wire_pll1_clk [1] = \my_pll|altpll_component|auto_generated|pll1_CLK_bus [1];
-assign \my_pll|altpll_component|auto_generated|wire_pll1_clk [2] = \my_pll|altpll_component|auto_generated|pll1_CLK_bus [2];
-assign \my_pll|altpll_component|auto_generated|wire_pll1_clk [3] = \my_pll|altpll_component|auto_generated|pll1_CLK_bus [3];
-assign \my_pll|altpll_component|auto_generated|wire_pll1_clk [4] = \my_pll|altpll_component|auto_generated|pll1_CLK_bus [4];
+assign \meu_pll|altpll_component|auto_generated|wire_pll1_clk [0] = \meu_pll|altpll_component|auto_generated|pll1_CLK_bus [0];
+assign \meu_pll|altpll_component|auto_generated|wire_pll1_clk [1] = \meu_pll|altpll_component|auto_generated|pll1_CLK_bus [1];
+assign \meu_pll|altpll_component|auto_generated|wire_pll1_clk [2] = \meu_pll|altpll_component|auto_generated|pll1_CLK_bus [2];
+assign \meu_pll|altpll_component|auto_generated|wire_pll1_clk [3] = \meu_pll|altpll_component|auto_generated|pll1_CLK_bus [3];
+assign \meu_pll|altpll_component|auto_generated|wire_pll1_clk [4] = \meu_pll|altpll_component|auto_generated|pll1_CLK_bus [4];
 
-// Location: IOOBUF_X0_Y35_N23
+// Location: IOOBUF_X20_Y43_N16
 cycloneive_io_obuf \VGA_HS~output (
-	.i(\scan_controller|hsync~1_combout ),
+	.i(\controlador_de_varredura|hsync~1_combout ),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -201,9 +206,9 @@ defparam \VGA_HS~output .bus_hold = "false";
 defparam \VGA_HS~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X0_Y35_N9
+// Location: IOOBUF_X22_Y43_N30
 cycloneive_io_obuf \VGA_VS~output (
-	.i(\scan_controller|vsync~1_combout ),
+	.i(\controlador_de_varredura|vsync~1_combout ),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -216,7 +221,7 @@ defparam \VGA_VS~output .open_drain_output = "false";
 
 // Location: IOOBUF_X7_Y0_N30
 cycloneive_io_obuf \VGA_CLK~output (
-	.i(\my_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_e_VGA_CLK_outclk ),
+	.i(\meu_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_e_VGA_CLK_outclk ),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -227,9 +232,9 @@ defparam \VGA_CLK~output .bus_hold = "false";
 defparam \VGA_CLK~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X3_Y43_N2
+// Location: IOOBUF_X20_Y43_N9
 cycloneive_io_obuf \VGA_BLANK_N~output (
-	.i(\scan_controller|video_on~1_combout ),
+	.i(\controlador_de_varredura|video_on~1_combout ),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -266,7 +271,7 @@ defparam \VGA_R[0]~output .bus_hold = "false";
 defparam \VGA_R[0]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X67_Y10_N9
+// Location: IOOBUF_X67_Y10_N16
 cycloneive_io_obuf \VGA_R[1]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -279,7 +284,7 @@ defparam \VGA_R[1]~output .bus_hold = "false";
 defparam \VGA_R[1]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X3_Y43_N30
+// Location: IOOBUF_X7_Y43_N16
 cycloneive_io_obuf \VGA_R[2]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -305,7 +310,7 @@ defparam \VGA_R[3]~output .bus_hold = "false";
 defparam \VGA_R[3]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X0_Y6_N9
+// Location: IOOBUF_X3_Y43_N16
 cycloneive_io_obuf \VGA_R[4]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -318,7 +323,7 @@ defparam \VGA_R[4]~output .bus_hold = "false";
 defparam \VGA_R[4]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X7_Y43_N30
+// Location: IOOBUF_X45_Y43_N30
 cycloneive_io_obuf \VGA_R[5]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -344,7 +349,7 @@ defparam \VGA_R[6]~output .bus_hold = "false";
 defparam \VGA_R[6]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X0_Y38_N23
+// Location: IOOBUF_X20_Y43_N23
 cycloneive_io_obuf \VGA_R[7]~output (
 	.i(!\VGA_R~2_combout ),
 	.oe(vcc),
@@ -357,7 +362,7 @@ defparam \VGA_R[7]~output .bus_hold = "false";
 defparam \VGA_R[7]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X0_Y33_N16
+// Location: IOOBUF_X14_Y43_N16
 cycloneive_io_obuf \VGA_G[0]~output (
 	.i(\VGA_G~2_combout ),
 	.oe(vcc),
@@ -370,7 +375,7 @@ defparam \VGA_G[0]~output .bus_hold = "false";
 defparam \VGA_G[0]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X0_Y35_N2
+// Location: IOOBUF_X11_Y43_N16
 cycloneive_io_obuf \VGA_G[1]~output (
 	.i(\VGA_G~2_combout ),
 	.oe(vcc),
@@ -383,7 +388,7 @@ defparam \VGA_G[1]~output .bus_hold = "false";
 defparam \VGA_G[1]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X0_Y32_N9
+// Location: IOOBUF_X16_Y43_N2
 cycloneive_io_obuf \VGA_G[2]~output (
 	.i(\VGA_G~2_combout ),
 	.oe(vcc),
@@ -396,7 +401,7 @@ defparam \VGA_G[2]~output .bus_hold = "false";
 defparam \VGA_G[2]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X0_Y34_N2
+// Location: IOOBUF_X11_Y43_N2
 cycloneive_io_obuf \VGA_G[3]~output (
 	.i(\VGA_G~2_combout ),
 	.oe(vcc),
@@ -409,7 +414,7 @@ defparam \VGA_G[3]~output .bus_hold = "false";
 defparam \VGA_G[3]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X0_Y33_N9
+// Location: IOOBUF_X14_Y43_N9
 cycloneive_io_obuf \VGA_G[4]~output (
 	.i(\VGA_G~2_combout ),
 	.oe(vcc),
@@ -422,7 +427,7 @@ defparam \VGA_G[4]~output .bus_hold = "false";
 defparam \VGA_G[4]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X0_Y33_N23
+// Location: IOOBUF_X16_Y43_N16
 cycloneive_io_obuf \VGA_G[5]~output (
 	.i(\VGA_G~2_combout ),
 	.oe(vcc),
@@ -435,7 +440,7 @@ defparam \VGA_G[5]~output .bus_hold = "false";
 defparam \VGA_G[5]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X0_Y33_N2
+// Location: IOOBUF_X11_Y43_N9
 cycloneive_io_obuf \VGA_G[6]~output (
 	.i(\VGA_G~2_combout ),
 	.oe(vcc),
@@ -448,9 +453,9 @@ defparam \VGA_G[6]~output .bus_hold = "false";
 defparam \VGA_G[6]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X3_Y43_N16
+// Location: IOOBUF_X20_Y43_N30
 cycloneive_io_obuf \VGA_G[7]~output (
-	.i(\scan_controller|video_on~1_combout ),
+	.i(\controlador_de_varredura|video_on~1_combout ),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -552,7 +557,7 @@ defparam \VGA_B[6]~output .bus_hold = "false";
 defparam \VGA_B[6]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X0_Y38_N9
+// Location: IOOBUF_X20_Y43_N2
 cycloneive_io_obuf \VGA_B[7]~output (
 	.i(!\VGA_R~2_combout ),
 	.oe(vcc),
@@ -576,10 +581,10 @@ defparam \CLOCK_50~input .simulate_z_as = "z";
 // synopsys translate_on
 
 // Location: PLL_1
-cycloneive_pll \my_pll|altpll_component|auto_generated|pll1 (
+cycloneive_pll \meu_pll|altpll_component|auto_generated|pll1 (
 	.areset(gnd),
 	.pfdena(vcc),
-	.fbin(\my_pll|altpll_component|auto_generated|wire_pll1_fbout ),
+	.fbin(\meu_pll|altpll_component|auto_generated|wire_pll1_fbout ),
 	.phaseupdown(gnd),
 	.phasestep(gnd),
 	.scandata(gnd),
@@ -596,1257 +601,1229 @@ cycloneive_pll \my_pll|altpll_component|auto_generated|pll1 (
 	.locked(),
 	.vcooverrange(),
 	.vcounderrange(),
-	.fbout(\my_pll|altpll_component|auto_generated|wire_pll1_fbout ),
-	.clk(\my_pll|altpll_component|auto_generated|pll1_CLK_bus ),
+	.fbout(\meu_pll|altpll_component|auto_generated|wire_pll1_fbout ),
+	.clk(\meu_pll|altpll_component|auto_generated|pll1_CLK_bus ),
 	.clkbad());
 // synopsys translate_off
-defparam \my_pll|altpll_component|auto_generated|pll1 .auto_settings = "false";
-defparam \my_pll|altpll_component|auto_generated|pll1 .bandwidth_type = "medium";
-defparam \my_pll|altpll_component|auto_generated|pll1 .c0_high = 11;
-defparam \my_pll|altpll_component|auto_generated|pll1 .c0_initial = 1;
-defparam \my_pll|altpll_component|auto_generated|pll1 .c0_low = 10;
-defparam \my_pll|altpll_component|auto_generated|pll1 .c0_mode = "odd";
-defparam \my_pll|altpll_component|auto_generated|pll1 .c0_ph = 0;
-defparam \my_pll|altpll_component|auto_generated|pll1 .c1_high = 0;
-defparam \my_pll|altpll_component|auto_generated|pll1 .c1_initial = 0;
-defparam \my_pll|altpll_component|auto_generated|pll1 .c1_low = 0;
-defparam \my_pll|altpll_component|auto_generated|pll1 .c1_mode = "bypass";
-defparam \my_pll|altpll_component|auto_generated|pll1 .c1_ph = 0;
-defparam \my_pll|altpll_component|auto_generated|pll1 .c1_use_casc_in = "off";
-defparam \my_pll|altpll_component|auto_generated|pll1 .c2_high = 0;
-defparam \my_pll|altpll_component|auto_generated|pll1 .c2_initial = 0;
-defparam \my_pll|altpll_component|auto_generated|pll1 .c2_low = 0;
-defparam \my_pll|altpll_component|auto_generated|pll1 .c2_mode = "bypass";
-defparam \my_pll|altpll_component|auto_generated|pll1 .c2_ph = 0;
-defparam \my_pll|altpll_component|auto_generated|pll1 .c2_use_casc_in = "off";
-defparam \my_pll|altpll_component|auto_generated|pll1 .c3_high = 0;
-defparam \my_pll|altpll_component|auto_generated|pll1 .c3_initial = 0;
-defparam \my_pll|altpll_component|auto_generated|pll1 .c3_low = 0;
-defparam \my_pll|altpll_component|auto_generated|pll1 .c3_mode = "bypass";
-defparam \my_pll|altpll_component|auto_generated|pll1 .c3_ph = 0;
-defparam \my_pll|altpll_component|auto_generated|pll1 .c3_use_casc_in = "off";
-defparam \my_pll|altpll_component|auto_generated|pll1 .c4_high = 0;
-defparam \my_pll|altpll_component|auto_generated|pll1 .c4_initial = 0;
-defparam \my_pll|altpll_component|auto_generated|pll1 .c4_low = 0;
-defparam \my_pll|altpll_component|auto_generated|pll1 .c4_mode = "bypass";
-defparam \my_pll|altpll_component|auto_generated|pll1 .c4_ph = 0;
-defparam \my_pll|altpll_component|auto_generated|pll1 .c4_use_casc_in = "off";
-defparam \my_pll|altpll_component|auto_generated|pll1 .charge_pump_current_bits = 1;
-defparam \my_pll|altpll_component|auto_generated|pll1 .clk0_counter = "c0";
-defparam \my_pll|altpll_component|auto_generated|pll1 .clk0_divide_by = 147;
-defparam \my_pll|altpll_component|auto_generated|pll1 .clk0_duty_cycle = 50;
-defparam \my_pll|altpll_component|auto_generated|pll1 .clk0_multiply_by = 74;
-defparam \my_pll|altpll_component|auto_generated|pll1 .clk0_phase_shift = "0";
-defparam \my_pll|altpll_component|auto_generated|pll1 .clk1_counter = "unused";
-defparam \my_pll|altpll_component|auto_generated|pll1 .clk1_divide_by = 0;
-defparam \my_pll|altpll_component|auto_generated|pll1 .clk1_duty_cycle = 50;
-defparam \my_pll|altpll_component|auto_generated|pll1 .clk1_multiply_by = 0;
-defparam \my_pll|altpll_component|auto_generated|pll1 .clk1_phase_shift = "0";
-defparam \my_pll|altpll_component|auto_generated|pll1 .clk2_counter = "unused";
-defparam \my_pll|altpll_component|auto_generated|pll1 .clk2_divide_by = 0;
-defparam \my_pll|altpll_component|auto_generated|pll1 .clk2_duty_cycle = 50;
-defparam \my_pll|altpll_component|auto_generated|pll1 .clk2_multiply_by = 0;
-defparam \my_pll|altpll_component|auto_generated|pll1 .clk2_phase_shift = "0";
-defparam \my_pll|altpll_component|auto_generated|pll1 .clk3_counter = "unused";
-defparam \my_pll|altpll_component|auto_generated|pll1 .clk3_divide_by = 0;
-defparam \my_pll|altpll_component|auto_generated|pll1 .clk3_duty_cycle = 50;
-defparam \my_pll|altpll_component|auto_generated|pll1 .clk3_multiply_by = 0;
-defparam \my_pll|altpll_component|auto_generated|pll1 .clk3_phase_shift = "0";
-defparam \my_pll|altpll_component|auto_generated|pll1 .clk4_counter = "unused";
-defparam \my_pll|altpll_component|auto_generated|pll1 .clk4_divide_by = 0;
-defparam \my_pll|altpll_component|auto_generated|pll1 .clk4_duty_cycle = 50;
-defparam \my_pll|altpll_component|auto_generated|pll1 .clk4_multiply_by = 0;
-defparam \my_pll|altpll_component|auto_generated|pll1 .clk4_phase_shift = "0";
-defparam \my_pll|altpll_component|auto_generated|pll1 .compensate_clock = "clock0";
-defparam \my_pll|altpll_component|auto_generated|pll1 .inclk0_input_frequency = 20000;
-defparam \my_pll|altpll_component|auto_generated|pll1 .inclk1_input_frequency = 0;
-defparam \my_pll|altpll_component|auto_generated|pll1 .loop_filter_c_bits = 0;
-defparam \my_pll|altpll_component|auto_generated|pll1 .loop_filter_r_bits = 16;
-defparam \my_pll|altpll_component|auto_generated|pll1 .m = 74;
-defparam \my_pll|altpll_component|auto_generated|pll1 .m_initial = 1;
-defparam \my_pll|altpll_component|auto_generated|pll1 .m_ph = 0;
-defparam \my_pll|altpll_component|auto_generated|pll1 .n = 7;
-defparam \my_pll|altpll_component|auto_generated|pll1 .operation_mode = "normal";
-defparam \my_pll|altpll_component|auto_generated|pll1 .pfd_max = 200000;
-defparam \my_pll|altpll_component|auto_generated|pll1 .pfd_min = 3076;
-defparam \my_pll|altpll_component|auto_generated|pll1 .self_reset_on_loss_lock = "off";
-defparam \my_pll|altpll_component|auto_generated|pll1 .simulation_type = "timing";
-defparam \my_pll|altpll_component|auto_generated|pll1 .switch_over_type = "auto";
-defparam \my_pll|altpll_component|auto_generated|pll1 .vco_center = 1538;
-defparam \my_pll|altpll_component|auto_generated|pll1 .vco_divide_by = 0;
-defparam \my_pll|altpll_component|auto_generated|pll1 .vco_frequency_control = "auto";
-defparam \my_pll|altpll_component|auto_generated|pll1 .vco_max = 3333;
-defparam \my_pll|altpll_component|auto_generated|pll1 .vco_min = 1538;
-defparam \my_pll|altpll_component|auto_generated|pll1 .vco_multiply_by = 0;
-defparam \my_pll|altpll_component|auto_generated|pll1 .vco_phase_shift_step = 236;
-defparam \my_pll|altpll_component|auto_generated|pll1 .vco_post_scale = 2;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .auto_settings = "false";
+defparam \meu_pll|altpll_component|auto_generated|pll1 .bandwidth_type = "medium";
+defparam \meu_pll|altpll_component|auto_generated|pll1 .c0_high = 11;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .c0_initial = 1;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .c0_low = 10;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .c0_mode = "odd";
+defparam \meu_pll|altpll_component|auto_generated|pll1 .c0_ph = 0;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .c1_high = 0;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .c1_initial = 0;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .c1_low = 0;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .c1_mode = "bypass";
+defparam \meu_pll|altpll_component|auto_generated|pll1 .c1_ph = 0;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .c1_use_casc_in = "off";
+defparam \meu_pll|altpll_component|auto_generated|pll1 .c2_high = 0;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .c2_initial = 0;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .c2_low = 0;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .c2_mode = "bypass";
+defparam \meu_pll|altpll_component|auto_generated|pll1 .c2_ph = 0;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .c2_use_casc_in = "off";
+defparam \meu_pll|altpll_component|auto_generated|pll1 .c3_high = 0;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .c3_initial = 0;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .c3_low = 0;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .c3_mode = "bypass";
+defparam \meu_pll|altpll_component|auto_generated|pll1 .c3_ph = 0;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .c3_use_casc_in = "off";
+defparam \meu_pll|altpll_component|auto_generated|pll1 .c4_high = 0;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .c4_initial = 0;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .c4_low = 0;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .c4_mode = "bypass";
+defparam \meu_pll|altpll_component|auto_generated|pll1 .c4_ph = 0;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .c4_use_casc_in = "off";
+defparam \meu_pll|altpll_component|auto_generated|pll1 .charge_pump_current_bits = 1;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .clk0_counter = "c0";
+defparam \meu_pll|altpll_component|auto_generated|pll1 .clk0_divide_by = 147;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .clk0_duty_cycle = 50;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .clk0_multiply_by = 74;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .clk0_phase_shift = "0";
+defparam \meu_pll|altpll_component|auto_generated|pll1 .clk1_counter = "unused";
+defparam \meu_pll|altpll_component|auto_generated|pll1 .clk1_divide_by = 0;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .clk1_duty_cycle = 50;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .clk1_multiply_by = 0;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .clk1_phase_shift = "0";
+defparam \meu_pll|altpll_component|auto_generated|pll1 .clk2_counter = "unused";
+defparam \meu_pll|altpll_component|auto_generated|pll1 .clk2_divide_by = 0;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .clk2_duty_cycle = 50;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .clk2_multiply_by = 0;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .clk2_phase_shift = "0";
+defparam \meu_pll|altpll_component|auto_generated|pll1 .clk3_counter = "unused";
+defparam \meu_pll|altpll_component|auto_generated|pll1 .clk3_divide_by = 0;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .clk3_duty_cycle = 50;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .clk3_multiply_by = 0;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .clk3_phase_shift = "0";
+defparam \meu_pll|altpll_component|auto_generated|pll1 .clk4_counter = "unused";
+defparam \meu_pll|altpll_component|auto_generated|pll1 .clk4_divide_by = 0;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .clk4_duty_cycle = 50;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .clk4_multiply_by = 0;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .clk4_phase_shift = "0";
+defparam \meu_pll|altpll_component|auto_generated|pll1 .compensate_clock = "clock0";
+defparam \meu_pll|altpll_component|auto_generated|pll1 .inclk0_input_frequency = 20000;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .inclk1_input_frequency = 0;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .loop_filter_c_bits = 0;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .loop_filter_r_bits = 16;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .m = 74;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .m_initial = 1;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .m_ph = 0;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .n = 7;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .operation_mode = "normal";
+defparam \meu_pll|altpll_component|auto_generated|pll1 .pfd_max = 200000;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .pfd_min = 3076;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .self_reset_on_loss_lock = "off";
+defparam \meu_pll|altpll_component|auto_generated|pll1 .simulation_type = "timing";
+defparam \meu_pll|altpll_component|auto_generated|pll1 .switch_over_type = "auto";
+defparam \meu_pll|altpll_component|auto_generated|pll1 .vco_center = 1538;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .vco_divide_by = 0;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .vco_frequency_control = "auto";
+defparam \meu_pll|altpll_component|auto_generated|pll1 .vco_max = 3333;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .vco_min = 1538;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .vco_multiply_by = 0;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .vco_phase_shift_step = 236;
+defparam \meu_pll|altpll_component|auto_generated|pll1 .vco_post_scale = 2;
 // synopsys translate_on
 
 // Location: CLKCTRL_G3
-cycloneive_clkctrl \my_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl (
+cycloneive_clkctrl \meu_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl (
 	.ena(vcc),
-	.inclk({vcc,vcc,vcc,\my_pll|altpll_component|auto_generated|wire_pll1_clk [0]}),
+	.inclk({vcc,vcc,vcc,\meu_pll|altpll_component|auto_generated|wire_pll1_clk [0]}),
 	.clkselect(2'b00),
 	.devclrn(devclrn),
 	.devpor(devpor),
-	.outclk(\my_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ));
+	.outclk(\meu_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ));
 // synopsys translate_off
-defparam \my_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl .clock_type = "global clock";
-defparam \my_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl .ena_register_mode = "none";
+defparam \meu_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl .clock_type = "global clock";
+defparam \meu_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl .ena_register_mode = "none";
 // synopsys translate_on
 
-// Location: LCCOMB_X4_Y35_N4
-cycloneive_lcell_comb \scan_controller|Add0~0 (
+// Location: LCCOMB_X20_Y34_N8
+cycloneive_lcell_comb \controlador_de_varredura|Add0~0 (
 // Equation(s):
-// \scan_controller|Add0~0_combout  = \scan_controller|h_count [0] $ (VCC)
-// \scan_controller|Add0~1  = CARRY(\scan_controller|h_count [0])
+// \controlador_de_varredura|Add0~0_combout  = \controlador_de_varredura|h_count [0] $ (VCC)
+// \controlador_de_varredura|Add0~1  = CARRY(\controlador_de_varredura|h_count [0])
 
 	.dataa(gnd),
-	.datab(\scan_controller|h_count [0]),
+	.datab(\controlador_de_varredura|h_count [0]),
 	.datac(gnd),
 	.datad(vcc),
 	.cin(gnd),
-	.combout(\scan_controller|Add0~0_combout ),
-	.cout(\scan_controller|Add0~1 ));
+	.combout(\controlador_de_varredura|Add0~0_combout ),
+	.cout(\controlador_de_varredura|Add0~1 ));
 // synopsys translate_off
-defparam \scan_controller|Add0~0 .lut_mask = 16'h33CC;
-defparam \scan_controller|Add0~0 .sum_lutc_input = "datac";
+defparam \controlador_de_varredura|Add0~0 .lut_mask = 16'h33CC;
+defparam \controlador_de_varredura|Add0~0 .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: FF_X4_Y35_N5
-dffeas \scan_controller|h_count[0] (
-	.clk(\my_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
-	.d(\scan_controller|Add0~0_combout ),
+// Location: IOIBUF_X36_Y0_N15
+cycloneive_io_ibuf \KEY[0]~input (
+	.i(KEY[0]),
+	.ibar(gnd),
+	.o(\KEY[0]~input_o ));
+// synopsys translate_off
+defparam \KEY[0]~input .bus_hold = "false";
+defparam \KEY[0]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: CLKCTRL_G19
+cycloneive_clkctrl \KEY[0]~inputclkctrl (
+	.ena(vcc),
+	.inclk({vcc,vcc,vcc,\KEY[0]~input_o }),
+	.clkselect(2'b00),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.outclk(\KEY[0]~inputclkctrl_outclk ));
+// synopsys translate_off
+defparam \KEY[0]~inputclkctrl .clock_type = "global clock";
+defparam \KEY[0]~inputclkctrl .ena_register_mode = "none";
+// synopsys translate_on
+
+// Location: FF_X20_Y34_N9
+dffeas \controlador_de_varredura|h_count[0] (
+	.clk(\meu_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
+	.d(\controlador_de_varredura|Add0~0_combout ),
 	.asdata(vcc),
-	.clrn(vcc),
+	.clrn(\KEY[0]~inputclkctrl_outclk ),
 	.aload(gnd),
 	.sclr(gnd),
 	.sload(gnd),
 	.ena(vcc),
 	.devclrn(devclrn),
 	.devpor(devpor),
-	.q(\scan_controller|h_count [0]),
+	.q(\controlador_de_varredura|h_count [0]),
 	.prn(vcc));
 // synopsys translate_off
-defparam \scan_controller|h_count[0] .is_wysiwyg = "true";
-defparam \scan_controller|h_count[0] .power_up = "low";
+defparam \controlador_de_varredura|h_count[0] .is_wysiwyg = "true";
+defparam \controlador_de_varredura|h_count[0] .power_up = "low";
 // synopsys translate_on
 
-// Location: LCCOMB_X4_Y35_N6
-cycloneive_lcell_comb \scan_controller|Add0~2 (
+// Location: LCCOMB_X20_Y34_N10
+cycloneive_lcell_comb \controlador_de_varredura|Add0~2 (
 // Equation(s):
-// \scan_controller|Add0~2_combout  = (\scan_controller|h_count [1] & (!\scan_controller|Add0~1 )) # (!\scan_controller|h_count [1] & ((\scan_controller|Add0~1 ) # (GND)))
-// \scan_controller|Add0~3  = CARRY((!\scan_controller|Add0~1 ) # (!\scan_controller|h_count [1]))
+// \controlador_de_varredura|Add0~2_combout  = (\controlador_de_varredura|h_count [1] & (!\controlador_de_varredura|Add0~1 )) # (!\controlador_de_varredura|h_count [1] & ((\controlador_de_varredura|Add0~1 ) # (GND)))
+// \controlador_de_varredura|Add0~3  = CARRY((!\controlador_de_varredura|Add0~1 ) # (!\controlador_de_varredura|h_count [1]))
 
-	.dataa(\scan_controller|h_count [1]),
+	.dataa(\controlador_de_varredura|h_count [1]),
 	.datab(gnd),
 	.datac(gnd),
 	.datad(vcc),
-	.cin(\scan_controller|Add0~1 ),
-	.combout(\scan_controller|Add0~2_combout ),
-	.cout(\scan_controller|Add0~3 ));
+	.cin(\controlador_de_varredura|Add0~1 ),
+	.combout(\controlador_de_varredura|Add0~2_combout ),
+	.cout(\controlador_de_varredura|Add0~3 ));
 // synopsys translate_off
-defparam \scan_controller|Add0~2 .lut_mask = 16'h5A5F;
-defparam \scan_controller|Add0~2 .sum_lutc_input = "cin";
+defparam \controlador_de_varredura|Add0~2 .lut_mask = 16'h5A5F;
+defparam \controlador_de_varredura|Add0~2 .sum_lutc_input = "cin";
 // synopsys translate_on
 
-// Location: FF_X4_Y35_N7
-dffeas \scan_controller|h_count[1] (
-	.clk(\my_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
-	.d(\scan_controller|Add0~2_combout ),
+// Location: FF_X20_Y34_N11
+dffeas \controlador_de_varredura|h_count[1] (
+	.clk(\meu_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
+	.d(\controlador_de_varredura|Add0~2_combout ),
 	.asdata(vcc),
-	.clrn(vcc),
+	.clrn(\KEY[0]~inputclkctrl_outclk ),
 	.aload(gnd),
 	.sclr(gnd),
 	.sload(gnd),
 	.ena(vcc),
 	.devclrn(devclrn),
 	.devpor(devpor),
-	.q(\scan_controller|h_count [1]),
+	.q(\controlador_de_varredura|h_count [1]),
 	.prn(vcc));
 // synopsys translate_off
-defparam \scan_controller|h_count[1] .is_wysiwyg = "true";
-defparam \scan_controller|h_count[1] .power_up = "low";
+defparam \controlador_de_varredura|h_count[1] .is_wysiwyg = "true";
+defparam \controlador_de_varredura|h_count[1] .power_up = "low";
 // synopsys translate_on
 
-// Location: LCCOMB_X4_Y35_N8
-cycloneive_lcell_comb \scan_controller|Add0~4 (
+// Location: LCCOMB_X20_Y34_N12
+cycloneive_lcell_comb \controlador_de_varredura|Add0~4 (
 // Equation(s):
-// \scan_controller|Add0~4_combout  = (\scan_controller|h_count [2] & (\scan_controller|Add0~3  $ (GND))) # (!\scan_controller|h_count [2] & (!\scan_controller|Add0~3  & VCC))
-// \scan_controller|Add0~5  = CARRY((\scan_controller|h_count [2] & !\scan_controller|Add0~3 ))
+// \controlador_de_varredura|Add0~4_combout  = (\controlador_de_varredura|h_count [2] & (\controlador_de_varredura|Add0~3  $ (GND))) # (!\controlador_de_varredura|h_count [2] & (!\controlador_de_varredura|Add0~3  & VCC))
+// \controlador_de_varredura|Add0~5  = CARRY((\controlador_de_varredura|h_count [2] & !\controlador_de_varredura|Add0~3 ))
 
-	.dataa(gnd),
-	.datab(\scan_controller|h_count [2]),
+	.dataa(\controlador_de_varredura|h_count [2]),
+	.datab(gnd),
 	.datac(gnd),
 	.datad(vcc),
-	.cin(\scan_controller|Add0~3 ),
-	.combout(\scan_controller|Add0~4_combout ),
-	.cout(\scan_controller|Add0~5 ));
+	.cin(\controlador_de_varredura|Add0~3 ),
+	.combout(\controlador_de_varredura|Add0~4_combout ),
+	.cout(\controlador_de_varredura|Add0~5 ));
 // synopsys translate_off
-defparam \scan_controller|Add0~4 .lut_mask = 16'hC30C;
-defparam \scan_controller|Add0~4 .sum_lutc_input = "cin";
+defparam \controlador_de_varredura|Add0~4 .lut_mask = 16'hA50A;
+defparam \controlador_de_varredura|Add0~4 .sum_lutc_input = "cin";
 // synopsys translate_on
 
-// Location: FF_X4_Y35_N9
-dffeas \scan_controller|h_count[2] (
-	.clk(\my_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
-	.d(\scan_controller|Add0~4_combout ),
+// Location: FF_X20_Y34_N13
+dffeas \controlador_de_varredura|h_count[2] (
+	.clk(\meu_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
+	.d(\controlador_de_varredura|Add0~4_combout ),
 	.asdata(vcc),
-	.clrn(vcc),
+	.clrn(\KEY[0]~inputclkctrl_outclk ),
 	.aload(gnd),
 	.sclr(gnd),
 	.sload(gnd),
 	.ena(vcc),
 	.devclrn(devclrn),
 	.devpor(devpor),
-	.q(\scan_controller|h_count [2]),
+	.q(\controlador_de_varredura|h_count [2]),
 	.prn(vcc));
 // synopsys translate_off
-defparam \scan_controller|h_count[2] .is_wysiwyg = "true";
-defparam \scan_controller|h_count[2] .power_up = "low";
+defparam \controlador_de_varredura|h_count[2] .is_wysiwyg = "true";
+defparam \controlador_de_varredura|h_count[2] .power_up = "low";
 // synopsys translate_on
 
-// Location: LCCOMB_X4_Y35_N10
-cycloneive_lcell_comb \scan_controller|Add0~6 (
+// Location: LCCOMB_X20_Y34_N14
+cycloneive_lcell_comb \controlador_de_varredura|Add0~6 (
 // Equation(s):
-// \scan_controller|Add0~6_combout  = (\scan_controller|h_count [3] & (!\scan_controller|Add0~5 )) # (!\scan_controller|h_count [3] & ((\scan_controller|Add0~5 ) # (GND)))
-// \scan_controller|Add0~7  = CARRY((!\scan_controller|Add0~5 ) # (!\scan_controller|h_count [3]))
+// \controlador_de_varredura|Add0~6_combout  = (\controlador_de_varredura|h_count [3] & (!\controlador_de_varredura|Add0~5 )) # (!\controlador_de_varredura|h_count [3] & ((\controlador_de_varredura|Add0~5 ) # (GND)))
+// \controlador_de_varredura|Add0~7  = CARRY((!\controlador_de_varredura|Add0~5 ) # (!\controlador_de_varredura|h_count [3]))
 
-	.dataa(\scan_controller|h_count [3]),
-	.datab(gnd),
+	.dataa(gnd),
+	.datab(\controlador_de_varredura|h_count [3]),
 	.datac(gnd),
 	.datad(vcc),
-	.cin(\scan_controller|Add0~5 ),
-	.combout(\scan_controller|Add0~6_combout ),
-	.cout(\scan_controller|Add0~7 ));
+	.cin(\controlador_de_varredura|Add0~5 ),
+	.combout(\controlador_de_varredura|Add0~6_combout ),
+	.cout(\controlador_de_varredura|Add0~7 ));
 // synopsys translate_off
-defparam \scan_controller|Add0~6 .lut_mask = 16'h5A5F;
-defparam \scan_controller|Add0~6 .sum_lutc_input = "cin";
+defparam \controlador_de_varredura|Add0~6 .lut_mask = 16'h3C3F;
+defparam \controlador_de_varredura|Add0~6 .sum_lutc_input = "cin";
 // synopsys translate_on
 
-// Location: FF_X4_Y35_N11
-dffeas \scan_controller|h_count[3] (
-	.clk(\my_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
-	.d(\scan_controller|Add0~6_combout ),
+// Location: FF_X20_Y34_N15
+dffeas \controlador_de_varredura|h_count[3] (
+	.clk(\meu_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
+	.d(\controlador_de_varredura|Add0~6_combout ),
 	.asdata(vcc),
-	.clrn(vcc),
+	.clrn(\KEY[0]~inputclkctrl_outclk ),
 	.aload(gnd),
 	.sclr(gnd),
 	.sload(gnd),
 	.ena(vcc),
 	.devclrn(devclrn),
 	.devpor(devpor),
-	.q(\scan_controller|h_count [3]),
+	.q(\controlador_de_varredura|h_count [3]),
 	.prn(vcc));
 // synopsys translate_off
-defparam \scan_controller|h_count[3] .is_wysiwyg = "true";
-defparam \scan_controller|h_count[3] .power_up = "low";
+defparam \controlador_de_varredura|h_count[3] .is_wysiwyg = "true";
+defparam \controlador_de_varredura|h_count[3] .power_up = "low";
 // synopsys translate_on
 
-// Location: LCCOMB_X4_Y35_N12
-cycloneive_lcell_comb \scan_controller|Add0~8 (
+// Location: LCCOMB_X20_Y34_N16
+cycloneive_lcell_comb \controlador_de_varredura|Add0~8 (
 // Equation(s):
-// \scan_controller|Add0~8_combout  = (\scan_controller|h_count [4] & (\scan_controller|Add0~7  $ (GND))) # (!\scan_controller|h_count [4] & (!\scan_controller|Add0~7  & VCC))
-// \scan_controller|Add0~9  = CARRY((\scan_controller|h_count [4] & !\scan_controller|Add0~7 ))
+// \controlador_de_varredura|Add0~8_combout  = (\controlador_de_varredura|h_count [4] & (\controlador_de_varredura|Add0~7  $ (GND))) # (!\controlador_de_varredura|h_count [4] & (!\controlador_de_varredura|Add0~7  & VCC))
+// \controlador_de_varredura|Add0~9  = CARRY((\controlador_de_varredura|h_count [4] & !\controlador_de_varredura|Add0~7 ))
 
-	.dataa(\scan_controller|h_count [4]),
-	.datab(gnd),
+	.dataa(gnd),
+	.datab(\controlador_de_varredura|h_count [4]),
 	.datac(gnd),
 	.datad(vcc),
-	.cin(\scan_controller|Add0~7 ),
-	.combout(\scan_controller|Add0~8_combout ),
-	.cout(\scan_controller|Add0~9 ));
+	.cin(\controlador_de_varredura|Add0~7 ),
+	.combout(\controlador_de_varredura|Add0~8_combout ),
+	.cout(\controlador_de_varredura|Add0~9 ));
 // synopsys translate_off
-defparam \scan_controller|Add0~8 .lut_mask = 16'hA50A;
-defparam \scan_controller|Add0~8 .sum_lutc_input = "cin";
+defparam \controlador_de_varredura|Add0~8 .lut_mask = 16'hC30C;
+defparam \controlador_de_varredura|Add0~8 .sum_lutc_input = "cin";
 // synopsys translate_on
 
-// Location: FF_X4_Y35_N13
-dffeas \scan_controller|h_count[4] (
-	.clk(\my_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
-	.d(\scan_controller|Add0~8_combout ),
+// Location: FF_X20_Y34_N17
+dffeas \controlador_de_varredura|h_count[4] (
+	.clk(\meu_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
+	.d(\controlador_de_varredura|Add0~8_combout ),
 	.asdata(vcc),
-	.clrn(vcc),
+	.clrn(\KEY[0]~inputclkctrl_outclk ),
 	.aload(gnd),
 	.sclr(gnd),
 	.sload(gnd),
 	.ena(vcc),
 	.devclrn(devclrn),
 	.devpor(devpor),
-	.q(\scan_controller|h_count [4]),
+	.q(\controlador_de_varredura|h_count [4]),
 	.prn(vcc));
 // synopsys translate_off
-defparam \scan_controller|h_count[4] .is_wysiwyg = "true";
-defparam \scan_controller|h_count[4] .power_up = "low";
+defparam \controlador_de_varredura|h_count[4] .is_wysiwyg = "true";
+defparam \controlador_de_varredura|h_count[4] .power_up = "low";
 // synopsys translate_on
 
-// Location: LCCOMB_X4_Y35_N14
-cycloneive_lcell_comb \scan_controller|Add0~10 (
+// Location: LCCOMB_X20_Y34_N18
+cycloneive_lcell_comb \controlador_de_varredura|Add0~10 (
 // Equation(s):
-// \scan_controller|Add0~10_combout  = (\scan_controller|h_count [5] & (!\scan_controller|Add0~9 )) # (!\scan_controller|h_count [5] & ((\scan_controller|Add0~9 ) # (GND)))
-// \scan_controller|Add0~11  = CARRY((!\scan_controller|Add0~9 ) # (!\scan_controller|h_count [5]))
+// \controlador_de_varredura|Add0~10_combout  = (\controlador_de_varredura|h_count [5] & (!\controlador_de_varredura|Add0~9 )) # (!\controlador_de_varredura|h_count [5] & ((\controlador_de_varredura|Add0~9 ) # (GND)))
+// \controlador_de_varredura|Add0~11  = CARRY((!\controlador_de_varredura|Add0~9 ) # (!\controlador_de_varredura|h_count [5]))
 
 	.dataa(gnd),
-	.datab(\scan_controller|h_count [5]),
+	.datab(\controlador_de_varredura|h_count [5]),
 	.datac(gnd),
 	.datad(vcc),
-	.cin(\scan_controller|Add0~9 ),
-	.combout(\scan_controller|Add0~10_combout ),
-	.cout(\scan_controller|Add0~11 ));
+	.cin(\controlador_de_varredura|Add0~9 ),
+	.combout(\controlador_de_varredura|Add0~10_combout ),
+	.cout(\controlador_de_varredura|Add0~11 ));
 // synopsys translate_off
-defparam \scan_controller|Add0~10 .lut_mask = 16'h3C3F;
-defparam \scan_controller|Add0~10 .sum_lutc_input = "cin";
+defparam \controlador_de_varredura|Add0~10 .lut_mask = 16'h3C3F;
+defparam \controlador_de_varredura|Add0~10 .sum_lutc_input = "cin";
 // synopsys translate_on
 
-// Location: LCCOMB_X4_Y35_N30
-cycloneive_lcell_comb \scan_controller|Equal0~1 (
+// Location: LCCOMB_X20_Y34_N22
+cycloneive_lcell_comb \controlador_de_varredura|Add0~14 (
 // Equation(s):
-// \scan_controller|Equal0~1_combout  = (\scan_controller|h_count [3] & (\scan_controller|h_count [2] & (\scan_controller|h_count [0] & \scan_controller|h_count [1])))
+// \controlador_de_varredura|Add0~14_combout  = (\controlador_de_varredura|h_count [7] & (!\controlador_de_varredura|Add0~13 )) # (!\controlador_de_varredura|h_count [7] & ((\controlador_de_varredura|Add0~13 ) # (GND)))
+// \controlador_de_varredura|Add0~15  = CARRY((!\controlador_de_varredura|Add0~13 ) # (!\controlador_de_varredura|h_count [7]))
 
-	.dataa(\scan_controller|h_count [3]),
-	.datab(\scan_controller|h_count [2]),
-	.datac(\scan_controller|h_count [0]),
-	.datad(\scan_controller|h_count [1]),
-	.cin(gnd),
-	.combout(\scan_controller|Equal0~1_combout ),
-	.cout());
+	.dataa(\controlador_de_varredura|h_count [7]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\controlador_de_varredura|Add0~13 ),
+	.combout(\controlador_de_varredura|Add0~14_combout ),
+	.cout(\controlador_de_varredura|Add0~15 ));
 // synopsys translate_off
-defparam \scan_controller|Equal0~1 .lut_mask = 16'h8000;
-defparam \scan_controller|Equal0~1 .sum_lutc_input = "datac";
+defparam \controlador_de_varredura|Add0~14 .lut_mask = 16'h5A5F;
+defparam \controlador_de_varredura|Add0~14 .sum_lutc_input = "cin";
 // synopsys translate_on
 
-// Location: LCCOMB_X5_Y35_N12
-cycloneive_lcell_comb \scan_controller|Equal0~0 (
+// Location: LCCOMB_X20_Y34_N24
+cycloneive_lcell_comb \controlador_de_varredura|Add0~16 (
 // Equation(s):
-// \scan_controller|Equal0~0_combout  = (\scan_controller|h_count [8] & (!\scan_controller|h_count [7] & (!\scan_controller|h_count [6] & !\scan_controller|h_count [5])))
-
-	.dataa(\scan_controller|h_count [8]),
-	.datab(\scan_controller|h_count [7]),
-	.datac(\scan_controller|h_count [6]),
-	.datad(\scan_controller|h_count [5]),
-	.cin(gnd),
-	.combout(\scan_controller|Equal0~0_combout ),
-	.cout());
-// synopsys translate_off
-defparam \scan_controller|Equal0~0 .lut_mask = 16'h0002;
-defparam \scan_controller|Equal0~0 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: LCCOMB_X5_Y35_N22
-cycloneive_lcell_comb \scan_controller|Equal0~2 (
-// Equation(s):
-// \scan_controller|Equal0~2_combout  = (\scan_controller|h_count [4] & (\scan_controller|Equal0~1_combout  & (\scan_controller|h_count [9] & \scan_controller|Equal0~0_combout )))
-
-	.dataa(\scan_controller|h_count [4]),
-	.datab(\scan_controller|Equal0~1_combout ),
-	.datac(\scan_controller|h_count [9]),
-	.datad(\scan_controller|Equal0~0_combout ),
-	.cin(gnd),
-	.combout(\scan_controller|Equal0~2_combout ),
-	.cout());
-// synopsys translate_off
-defparam \scan_controller|Equal0~2 .lut_mask = 16'h8000;
-defparam \scan_controller|Equal0~2 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: LCCOMB_X4_Y35_N24
-cycloneive_lcell_comb \scan_controller|h_count~0 (
-// Equation(s):
-// \scan_controller|h_count~0_combout  = (\scan_controller|Add0~10_combout  & !\scan_controller|Equal0~2_combout )
+// \controlador_de_varredura|Add0~16_combout  = (\controlador_de_varredura|h_count [8] & (\controlador_de_varredura|Add0~15  $ (GND))) # (!\controlador_de_varredura|h_count [8] & (!\controlador_de_varredura|Add0~15  & VCC))
+// \controlador_de_varredura|Add0~17  = CARRY((\controlador_de_varredura|h_count [8] & !\controlador_de_varredura|Add0~15 ))
 
 	.dataa(gnd),
-	.datab(gnd),
-	.datac(\scan_controller|Add0~10_combout ),
-	.datad(\scan_controller|Equal0~2_combout ),
-	.cin(gnd),
-	.combout(\scan_controller|h_count~0_combout ),
-	.cout());
+	.datab(\controlador_de_varredura|h_count [8]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\controlador_de_varredura|Add0~15 ),
+	.combout(\controlador_de_varredura|Add0~16_combout ),
+	.cout(\controlador_de_varredura|Add0~17 ));
 // synopsys translate_off
-defparam \scan_controller|h_count~0 .lut_mask = 16'h00F0;
-defparam \scan_controller|h_count~0 .sum_lutc_input = "datac";
+defparam \controlador_de_varredura|Add0~16 .lut_mask = 16'hC30C;
+defparam \controlador_de_varredura|Add0~16 .sum_lutc_input = "cin";
 // synopsys translate_on
 
-// Location: FF_X4_Y35_N25
-dffeas \scan_controller|h_count[5] (
-	.clk(\my_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
-	.d(\scan_controller|h_count~0_combout ),
+// Location: LCCOMB_X20_Y34_N4
+cycloneive_lcell_comb \controlador_de_varredura|h_count~2 (
+// Equation(s):
+// \controlador_de_varredura|h_count~2_combout  = (\controlador_de_varredura|Add0~16_combout  & !\controlador_de_varredura|Equal0~2_combout )
+
+	.dataa(gnd),
+	.datab(\controlador_de_varredura|Add0~16_combout ),
+	.datac(gnd),
+	.datad(\controlador_de_varredura|Equal0~2_combout ),
+	.cin(gnd),
+	.combout(\controlador_de_varredura|h_count~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \controlador_de_varredura|h_count~2 .lut_mask = 16'h00CC;
+defparam \controlador_de_varredura|h_count~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X20_Y34_N5
+dffeas \controlador_de_varredura|h_count[8] (
+	.clk(\meu_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
+	.d(\controlador_de_varredura|h_count~2_combout ),
 	.asdata(vcc),
-	.clrn(vcc),
+	.clrn(\KEY[0]~inputclkctrl_outclk ),
 	.aload(gnd),
 	.sclr(gnd),
 	.sload(gnd),
 	.ena(vcc),
 	.devclrn(devclrn),
 	.devpor(devpor),
-	.q(\scan_controller|h_count [5]),
+	.q(\controlador_de_varredura|h_count [8]),
 	.prn(vcc));
 // synopsys translate_off
-defparam \scan_controller|h_count[5] .is_wysiwyg = "true";
-defparam \scan_controller|h_count[5] .power_up = "low";
+defparam \controlador_de_varredura|h_count[8] .is_wysiwyg = "true";
+defparam \controlador_de_varredura|h_count[8] .power_up = "low";
 // synopsys translate_on
 
-// Location: LCCOMB_X4_Y35_N16
-cycloneive_lcell_comb \scan_controller|Add0~12 (
+// Location: LCCOMB_X20_Y34_N26
+cycloneive_lcell_comb \controlador_de_varredura|Add0~18 (
 // Equation(s):
-// \scan_controller|Add0~12_combout  = (\scan_controller|h_count [6] & (\scan_controller|Add0~11  $ (GND))) # (!\scan_controller|h_count [6] & (!\scan_controller|Add0~11  & VCC))
-// \scan_controller|Add0~13  = CARRY((\scan_controller|h_count [6] & !\scan_controller|Add0~11 ))
+// \controlador_de_varredura|Add0~18_combout  = \controlador_de_varredura|Add0~17  $ (\controlador_de_varredura|h_count [9])
 
 	.dataa(gnd),
-	.datab(\scan_controller|h_count [6]),
+	.datab(gnd),
 	.datac(gnd),
-	.datad(vcc),
-	.cin(\scan_controller|Add0~11 ),
-	.combout(\scan_controller|Add0~12_combout ),
-	.cout(\scan_controller|Add0~13 ));
+	.datad(\controlador_de_varredura|h_count [9]),
+	.cin(\controlador_de_varredura|Add0~17 ),
+	.combout(\controlador_de_varredura|Add0~18_combout ),
+	.cout());
 // synopsys translate_off
-defparam \scan_controller|Add0~12 .lut_mask = 16'hC30C;
-defparam \scan_controller|Add0~12 .sum_lutc_input = "cin";
+defparam \controlador_de_varredura|Add0~18 .lut_mask = 16'h0FF0;
+defparam \controlador_de_varredura|Add0~18 .sum_lutc_input = "cin";
 // synopsys translate_on
 
-// Location: FF_X4_Y35_N17
-dffeas \scan_controller|h_count[6] (
-	.clk(\my_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
-	.d(\scan_controller|Add0~12_combout ),
+// Location: LCCOMB_X20_Y34_N2
+cycloneive_lcell_comb \controlador_de_varredura|h_count~1 (
+// Equation(s):
+// \controlador_de_varredura|h_count~1_combout  = (\controlador_de_varredura|Add0~18_combout  & !\controlador_de_varredura|Equal0~2_combout )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\controlador_de_varredura|Add0~18_combout ),
+	.datad(\controlador_de_varredura|Equal0~2_combout ),
+	.cin(gnd),
+	.combout(\controlador_de_varredura|h_count~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \controlador_de_varredura|h_count~1 .lut_mask = 16'h00F0;
+defparam \controlador_de_varredura|h_count~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X20_Y34_N3
+dffeas \controlador_de_varredura|h_count[9] (
+	.clk(\meu_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
+	.d(\controlador_de_varredura|h_count~1_combout ),
 	.asdata(vcc),
-	.clrn(vcc),
+	.clrn(\KEY[0]~inputclkctrl_outclk ),
 	.aload(gnd),
 	.sclr(gnd),
 	.sload(gnd),
 	.ena(vcc),
 	.devclrn(devclrn),
 	.devpor(devpor),
-	.q(\scan_controller|h_count [6]),
+	.q(\controlador_de_varredura|h_count [9]),
 	.prn(vcc));
 // synopsys translate_off
-defparam \scan_controller|h_count[6] .is_wysiwyg = "true";
-defparam \scan_controller|h_count[6] .power_up = "low";
+defparam \controlador_de_varredura|h_count[9] .is_wysiwyg = "true";
+defparam \controlador_de_varredura|h_count[9] .power_up = "low";
 // synopsys translate_on
 
-// Location: LCCOMB_X4_Y35_N18
-cycloneive_lcell_comb \scan_controller|Add0~14 (
+// Location: LCCOMB_X20_Y34_N28
+cycloneive_lcell_comb \controlador_de_varredura|Equal0~1 (
 // Equation(s):
-// \scan_controller|Add0~14_combout  = (\scan_controller|h_count [7] & (!\scan_controller|Add0~13 )) # (!\scan_controller|h_count [7] & ((\scan_controller|Add0~13 ) # (GND)))
-// \scan_controller|Add0~15  = CARRY((!\scan_controller|Add0~13 ) # (!\scan_controller|h_count [7]))
+// \controlador_de_varredura|Equal0~1_combout  = (\controlador_de_varredura|h_count [2] & (\controlador_de_varredura|h_count [9] & (\controlador_de_varredura|h_count [3] & \controlador_de_varredura|h_count [4])))
+
+	.dataa(\controlador_de_varredura|h_count [2]),
+	.datab(\controlador_de_varredura|h_count [9]),
+	.datac(\controlador_de_varredura|h_count [3]),
+	.datad(\controlador_de_varredura|h_count [4]),
+	.cin(gnd),
+	.combout(\controlador_de_varredura|Equal0~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \controlador_de_varredura|Equal0~1 .lut_mask = 16'h8000;
+defparam \controlador_de_varredura|Equal0~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X21_Y34_N22
+cycloneive_lcell_comb \controlador_de_varredura|Equal0~0 (
+// Equation(s):
+// \controlador_de_varredura|Equal0~0_combout  = (!\controlador_de_varredura|h_count [5] & (!\controlador_de_varredura|h_count [6] & (\controlador_de_varredura|h_count [8] & !\controlador_de_varredura|h_count [7])))
+
+	.dataa(\controlador_de_varredura|h_count [5]),
+	.datab(\controlador_de_varredura|h_count [6]),
+	.datac(\controlador_de_varredura|h_count [8]),
+	.datad(\controlador_de_varredura|h_count [7]),
+	.cin(gnd),
+	.combout(\controlador_de_varredura|Equal0~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \controlador_de_varredura|Equal0~0 .lut_mask = 16'h0010;
+defparam \controlador_de_varredura|Equal0~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X20_Y34_N6
+cycloneive_lcell_comb \controlador_de_varredura|Equal0~2 (
+// Equation(s):
+// \controlador_de_varredura|Equal0~2_combout  = (\controlador_de_varredura|h_count [1] & (\controlador_de_varredura|Equal0~1_combout  & (\controlador_de_varredura|h_count [0] & \controlador_de_varredura|Equal0~0_combout )))
+
+	.dataa(\controlador_de_varredura|h_count [1]),
+	.datab(\controlador_de_varredura|Equal0~1_combout ),
+	.datac(\controlador_de_varredura|h_count [0]),
+	.datad(\controlador_de_varredura|Equal0~0_combout ),
+	.cin(gnd),
+	.combout(\controlador_de_varredura|Equal0~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \controlador_de_varredura|Equal0~2 .lut_mask = 16'h8000;
+defparam \controlador_de_varredura|Equal0~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X20_Y34_N0
+cycloneive_lcell_comb \controlador_de_varredura|h_count~0 (
+// Equation(s):
+// \controlador_de_varredura|h_count~0_combout  = (\controlador_de_varredura|Add0~10_combout  & !\controlador_de_varredura|Equal0~2_combout )
 
 	.dataa(gnd),
-	.datab(\scan_controller|h_count [7]),
+	.datab(\controlador_de_varredura|Add0~10_combout ),
 	.datac(gnd),
-	.datad(vcc),
-	.cin(\scan_controller|Add0~13 ),
-	.combout(\scan_controller|Add0~14_combout ),
-	.cout(\scan_controller|Add0~15 ));
+	.datad(\controlador_de_varredura|Equal0~2_combout ),
+	.cin(gnd),
+	.combout(\controlador_de_varredura|h_count~0_combout ),
+	.cout());
 // synopsys translate_off
-defparam \scan_controller|Add0~14 .lut_mask = 16'h3C3F;
-defparam \scan_controller|Add0~14 .sum_lutc_input = "cin";
+defparam \controlador_de_varredura|h_count~0 .lut_mask = 16'h00CC;
+defparam \controlador_de_varredura|h_count~0 .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: FF_X4_Y35_N19
-dffeas \scan_controller|h_count[7] (
-	.clk(\my_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
-	.d(\scan_controller|Add0~14_combout ),
+// Location: FF_X20_Y34_N1
+dffeas \controlador_de_varredura|h_count[5] (
+	.clk(\meu_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
+	.d(\controlador_de_varredura|h_count~0_combout ),
 	.asdata(vcc),
-	.clrn(vcc),
+	.clrn(\KEY[0]~inputclkctrl_outclk ),
 	.aload(gnd),
 	.sclr(gnd),
 	.sload(gnd),
 	.ena(vcc),
 	.devclrn(devclrn),
 	.devpor(devpor),
-	.q(\scan_controller|h_count [7]),
+	.q(\controlador_de_varredura|h_count [5]),
 	.prn(vcc));
 // synopsys translate_off
-defparam \scan_controller|h_count[7] .is_wysiwyg = "true";
-defparam \scan_controller|h_count[7] .power_up = "low";
+defparam \controlador_de_varredura|h_count[5] .is_wysiwyg = "true";
+defparam \controlador_de_varredura|h_count[5] .power_up = "low";
 // synopsys translate_on
 
-// Location: LCCOMB_X4_Y35_N20
-cycloneive_lcell_comb \scan_controller|Add0~16 (
+// Location: LCCOMB_X20_Y34_N20
+cycloneive_lcell_comb \controlador_de_varredura|Add0~12 (
 // Equation(s):
-// \scan_controller|Add0~16_combout  = (\scan_controller|h_count [8] & (\scan_controller|Add0~15  $ (GND))) # (!\scan_controller|h_count [8] & (!\scan_controller|Add0~15  & VCC))
-// \scan_controller|Add0~17  = CARRY((\scan_controller|h_count [8] & !\scan_controller|Add0~15 ))
+// \controlador_de_varredura|Add0~12_combout  = (\controlador_de_varredura|h_count [6] & (\controlador_de_varredura|Add0~11  $ (GND))) # (!\controlador_de_varredura|h_count [6] & (!\controlador_de_varredura|Add0~11  & VCC))
+// \controlador_de_varredura|Add0~13  = CARRY((\controlador_de_varredura|h_count [6] & !\controlador_de_varredura|Add0~11 ))
 
 	.dataa(gnd),
-	.datab(\scan_controller|h_count [8]),
+	.datab(\controlador_de_varredura|h_count [6]),
 	.datac(gnd),
 	.datad(vcc),
-	.cin(\scan_controller|Add0~15 ),
-	.combout(\scan_controller|Add0~16_combout ),
-	.cout(\scan_controller|Add0~17 ));
+	.cin(\controlador_de_varredura|Add0~11 ),
+	.combout(\controlador_de_varredura|Add0~12_combout ),
+	.cout(\controlador_de_varredura|Add0~13 ));
 // synopsys translate_off
-defparam \scan_controller|Add0~16 .lut_mask = 16'hC30C;
-defparam \scan_controller|Add0~16 .sum_lutc_input = "cin";
+defparam \controlador_de_varredura|Add0~12 .lut_mask = 16'hC30C;
+defparam \controlador_de_varredura|Add0~12 .sum_lutc_input = "cin";
 // synopsys translate_on
 
-// Location: LCCOMB_X4_Y35_N2
-cycloneive_lcell_comb \scan_controller|h_count~1 (
-// Equation(s):
-// \scan_controller|h_count~1_combout  = (\scan_controller|Add0~16_combout  & !\scan_controller|Equal0~2_combout )
-
-	.dataa(gnd),
-	.datab(\scan_controller|Add0~16_combout ),
-	.datac(gnd),
-	.datad(\scan_controller|Equal0~2_combout ),
-	.cin(gnd),
-	.combout(\scan_controller|h_count~1_combout ),
-	.cout());
-// synopsys translate_off
-defparam \scan_controller|h_count~1 .lut_mask = 16'h00CC;
-defparam \scan_controller|h_count~1 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: FF_X4_Y35_N3
-dffeas \scan_controller|h_count[8] (
-	.clk(\my_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
-	.d(\scan_controller|h_count~1_combout ),
+// Location: FF_X20_Y34_N21
+dffeas \controlador_de_varredura|h_count[6] (
+	.clk(\meu_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
+	.d(\controlador_de_varredura|Add0~12_combout ),
 	.asdata(vcc),
-	.clrn(vcc),
+	.clrn(\KEY[0]~inputclkctrl_outclk ),
 	.aload(gnd),
 	.sclr(gnd),
 	.sload(gnd),
 	.ena(vcc),
 	.devclrn(devclrn),
 	.devpor(devpor),
-	.q(\scan_controller|h_count [8]),
+	.q(\controlador_de_varredura|h_count [6]),
 	.prn(vcc));
 // synopsys translate_off
-defparam \scan_controller|h_count[8] .is_wysiwyg = "true";
-defparam \scan_controller|h_count[8] .power_up = "low";
+defparam \controlador_de_varredura|h_count[6] .is_wysiwyg = "true";
+defparam \controlador_de_varredura|h_count[6] .power_up = "low";
 // synopsys translate_on
 
-// Location: LCCOMB_X4_Y35_N22
-cycloneive_lcell_comb \scan_controller|Add0~18 (
-// Equation(s):
-// \scan_controller|Add0~18_combout  = \scan_controller|Add0~17  $ (\scan_controller|h_count [9])
-
-	.dataa(gnd),
-	.datab(gnd),
-	.datac(gnd),
-	.datad(\scan_controller|h_count [9]),
-	.cin(\scan_controller|Add0~17 ),
-	.combout(\scan_controller|Add0~18_combout ),
-	.cout());
-// synopsys translate_off
-defparam \scan_controller|Add0~18 .lut_mask = 16'h0FF0;
-defparam \scan_controller|Add0~18 .sum_lutc_input = "cin";
-// synopsys translate_on
-
-// Location: LCCOMB_X4_Y35_N0
-cycloneive_lcell_comb \scan_controller|h_count~2 (
-// Equation(s):
-// \scan_controller|h_count~2_combout  = (\scan_controller|Add0~18_combout  & !\scan_controller|Equal0~2_combout )
-
-	.dataa(gnd),
-	.datab(gnd),
-	.datac(\scan_controller|Add0~18_combout ),
-	.datad(\scan_controller|Equal0~2_combout ),
-	.cin(gnd),
-	.combout(\scan_controller|h_count~2_combout ),
-	.cout());
-// synopsys translate_off
-defparam \scan_controller|h_count~2 .lut_mask = 16'h00F0;
-defparam \scan_controller|h_count~2 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: FF_X4_Y35_N1
-dffeas \scan_controller|h_count[9] (
-	.clk(\my_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
-	.d(\scan_controller|h_count~2_combout ),
+// Location: FF_X20_Y34_N23
+dffeas \controlador_de_varredura|h_count[7] (
+	.clk(\meu_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
+	.d(\controlador_de_varredura|Add0~14_combout ),
 	.asdata(vcc),
-	.clrn(vcc),
+	.clrn(\KEY[0]~inputclkctrl_outclk ),
 	.aload(gnd),
 	.sclr(gnd),
 	.sload(gnd),
 	.ena(vcc),
 	.devclrn(devclrn),
 	.devpor(devpor),
-	.q(\scan_controller|h_count [9]),
+	.q(\controlador_de_varredura|h_count [7]),
 	.prn(vcc));
 // synopsys translate_off
-defparam \scan_controller|h_count[9] .is_wysiwyg = "true";
-defparam \scan_controller|h_count[9] .power_up = "low";
+defparam \controlador_de_varredura|h_count[7] .is_wysiwyg = "true";
+defparam \controlador_de_varredura|h_count[7] .power_up = "low";
 // synopsys translate_on
 
-// Location: LCCOMB_X5_Y35_N8
-cycloneive_lcell_comb \scan_controller|hsync~0 (
+// Location: LCCOMB_X21_Y34_N24
+cycloneive_lcell_comb \controlador_de_varredura|hsync~0 (
 // Equation(s):
-// \scan_controller|hsync~0_combout  = ((\scan_controller|h_count [4] & (\scan_controller|h_count [6] & \scan_controller|h_count [5])) # (!\scan_controller|h_count [4] & (!\scan_controller|h_count [6] & !\scan_controller|h_count [5]))) # 
-// (!\scan_controller|h_count [7])
+// \controlador_de_varredura|hsync~0_combout  = ((\controlador_de_varredura|h_count [5] & (\controlador_de_varredura|h_count [6] & \controlador_de_varredura|h_count [4])) # (!\controlador_de_varredura|h_count [5] & (!\controlador_de_varredura|h_count [6] & 
+// !\controlador_de_varredura|h_count [4]))) # (!\controlador_de_varredura|h_count [9])
 
-	.dataa(\scan_controller|h_count [4]),
-	.datab(\scan_controller|h_count [7]),
-	.datac(\scan_controller|h_count [6]),
-	.datad(\scan_controller|h_count [5]),
+	.dataa(\controlador_de_varredura|h_count [5]),
+	.datab(\controlador_de_varredura|h_count [6]),
+	.datac(\controlador_de_varredura|h_count [4]),
+	.datad(\controlador_de_varredura|h_count [9]),
 	.cin(gnd),
-	.combout(\scan_controller|hsync~0_combout ),
+	.combout(\controlador_de_varredura|hsync~0_combout ),
 	.cout());
 // synopsys translate_off
-defparam \scan_controller|hsync~0 .lut_mask = 16'hB337;
-defparam \scan_controller|hsync~0 .sum_lutc_input = "datac";
+defparam \controlador_de_varredura|hsync~0 .lut_mask = 16'h81FF;
+defparam \controlador_de_varredura|hsync~0 .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: LCCOMB_X4_Y35_N26
-cycloneive_lcell_comb \scan_controller|hsync~1 (
+// Location: LCCOMB_X21_Y34_N26
+cycloneive_lcell_comb \controlador_de_varredura|hsync~1 (
 // Equation(s):
-// \scan_controller|hsync~1_combout  = ((\scan_controller|hsync~0_combout ) # (\scan_controller|h_count [8])) # (!\scan_controller|h_count [9])
+// \controlador_de_varredura|hsync~1_combout  = ((\controlador_de_varredura|h_count [8]) # (\controlador_de_varredura|hsync~0_combout )) # (!\controlador_de_varredura|h_count [7])
 
 	.dataa(gnd),
-	.datab(\scan_controller|h_count [9]),
-	.datac(\scan_controller|hsync~0_combout ),
-	.datad(\scan_controller|h_count [8]),
+	.datab(\controlador_de_varredura|h_count [7]),
+	.datac(\controlador_de_varredura|h_count [8]),
+	.datad(\controlador_de_varredura|hsync~0_combout ),
 	.cin(gnd),
-	.combout(\scan_controller|hsync~1_combout ),
+	.combout(\controlador_de_varredura|hsync~1_combout ),
 	.cout());
 // synopsys translate_off
-defparam \scan_controller|hsync~1 .lut_mask = 16'hFFF3;
-defparam \scan_controller|hsync~1 .sum_lutc_input = "datac";
+defparam \controlador_de_varredura|hsync~1 .lut_mask = 16'hFFF3;
+defparam \controlador_de_varredura|hsync~1 .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: LCCOMB_X6_Y35_N8
-cycloneive_lcell_comb \scan_controller|Add1~0 (
+// Location: LCCOMB_X22_Y34_N26
+cycloneive_lcell_comb \controlador_de_varredura|Add1~14 (
 // Equation(s):
-// \scan_controller|Add1~0_combout  = \scan_controller|v_count [0] $ (VCC)
-// \scan_controller|Add1~1  = CARRY(\scan_controller|v_count [0])
+// \controlador_de_varredura|Add1~14_combout  = (\controlador_de_varredura|v_count [7] & (!\controlador_de_varredura|Add1~13 )) # (!\controlador_de_varredura|v_count [7] & ((\controlador_de_varredura|Add1~13 ) # (GND)))
+// \controlador_de_varredura|Add1~15  = CARRY((!\controlador_de_varredura|Add1~13 ) # (!\controlador_de_varredura|v_count [7]))
 
-	.dataa(gnd),
-	.datab(\scan_controller|v_count [0]),
-	.datac(gnd),
-	.datad(vcc),
-	.cin(gnd),
-	.combout(\scan_controller|Add1~0_combout ),
-	.cout(\scan_controller|Add1~1 ));
-// synopsys translate_off
-defparam \scan_controller|Add1~0 .lut_mask = 16'h33CC;
-defparam \scan_controller|Add1~0 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: LCCOMB_X6_Y35_N4
-cycloneive_lcell_comb \scan_controller|v_count~3 (
-// Equation(s):
-// \scan_controller|v_count~3_combout  = (\scan_controller|Add1~0_combout  & !\scan_controller|Equal1~2_combout )
-
-	.dataa(gnd),
-	.datab(gnd),
-	.datac(\scan_controller|Add1~0_combout ),
-	.datad(\scan_controller|Equal1~2_combout ),
-	.cin(gnd),
-	.combout(\scan_controller|v_count~3_combout ),
-	.cout());
-// synopsys translate_off
-defparam \scan_controller|v_count~3 .lut_mask = 16'h00F0;
-defparam \scan_controller|v_count~3 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: FF_X6_Y35_N5
-dffeas \scan_controller|v_count[0] (
-	.clk(\my_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
-	.d(\scan_controller|v_count~3_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(\scan_controller|Equal0~2_combout ),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\scan_controller|v_count [0]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \scan_controller|v_count[0] .is_wysiwyg = "true";
-defparam \scan_controller|v_count[0] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X6_Y35_N10
-cycloneive_lcell_comb \scan_controller|Add1~2 (
-// Equation(s):
-// \scan_controller|Add1~2_combout  = (\scan_controller|v_count [1] & (!\scan_controller|Add1~1 )) # (!\scan_controller|v_count [1] & ((\scan_controller|Add1~1 ) # (GND)))
-// \scan_controller|Add1~3  = CARRY((!\scan_controller|Add1~1 ) # (!\scan_controller|v_count [1]))
-
-	.dataa(\scan_controller|v_count [1]),
+	.dataa(\controlador_de_varredura|v_count [7]),
 	.datab(gnd),
 	.datac(gnd),
 	.datad(vcc),
-	.cin(\scan_controller|Add1~1 ),
-	.combout(\scan_controller|Add1~2_combout ),
-	.cout(\scan_controller|Add1~3 ));
+	.cin(\controlador_de_varredura|Add1~13 ),
+	.combout(\controlador_de_varredura|Add1~14_combout ),
+	.cout(\controlador_de_varredura|Add1~15 ));
 // synopsys translate_off
-defparam \scan_controller|Add1~2 .lut_mask = 16'h5A5F;
-defparam \scan_controller|Add1~2 .sum_lutc_input = "cin";
+defparam \controlador_de_varredura|Add1~14 .lut_mask = 16'h5A5F;
+defparam \controlador_de_varredura|Add1~14 .sum_lutc_input = "cin";
 // synopsys translate_on
 
-// Location: FF_X6_Y35_N11
-dffeas \scan_controller|v_count[1] (
-	.clk(\my_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
-	.d(\scan_controller|Add1~2_combout ),
+// Location: LCCOMB_X22_Y34_N28
+cycloneive_lcell_comb \controlador_de_varredura|Add1~16 (
+// Equation(s):
+// \controlador_de_varredura|Add1~16_combout  = (\controlador_de_varredura|v_count [8] & (\controlador_de_varredura|Add1~15  $ (GND))) # (!\controlador_de_varredura|v_count [8] & (!\controlador_de_varredura|Add1~15  & VCC))
+// \controlador_de_varredura|Add1~17  = CARRY((\controlador_de_varredura|v_count [8] & !\controlador_de_varredura|Add1~15 ))
+
+	.dataa(gnd),
+	.datab(\controlador_de_varredura|v_count [8]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\controlador_de_varredura|Add1~15 ),
+	.combout(\controlador_de_varredura|Add1~16_combout ),
+	.cout(\controlador_de_varredura|Add1~17 ));
+// synopsys translate_off
+defparam \controlador_de_varredura|Add1~16 .lut_mask = 16'hC30C;
+defparam \controlador_de_varredura|Add1~16 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X22_Y34_N29
+dffeas \controlador_de_varredura|v_count[8] (
+	.clk(\meu_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
+	.d(\controlador_de_varredura|Add1~16_combout ),
 	.asdata(vcc),
-	.clrn(vcc),
+	.clrn(\KEY[0]~inputclkctrl_outclk ),
 	.aload(gnd),
 	.sclr(gnd),
 	.sload(gnd),
-	.ena(\scan_controller|Equal0~2_combout ),
+	.ena(\controlador_de_varredura|Equal0~2_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
-	.q(\scan_controller|v_count [1]),
+	.q(\controlador_de_varredura|v_count [8]),
 	.prn(vcc));
 // synopsys translate_off
-defparam \scan_controller|v_count[1] .is_wysiwyg = "true";
-defparam \scan_controller|v_count[1] .power_up = "low";
+defparam \controlador_de_varredura|v_count[8] .is_wysiwyg = "true";
+defparam \controlador_de_varredura|v_count[8] .power_up = "low";
 // synopsys translate_on
 
-// Location: LCCOMB_X6_Y35_N12
-cycloneive_lcell_comb \scan_controller|Add1~4 (
+// Location: LCCOMB_X22_Y34_N2
+cycloneive_lcell_comb \controlador_de_varredura|Equal1~1 (
 // Equation(s):
-// \scan_controller|Add1~4_combout  = (\scan_controller|v_count [2] & (\scan_controller|Add1~3  $ (GND))) # (!\scan_controller|v_count [2] & (!\scan_controller|Add1~3  & VCC))
-// \scan_controller|Add1~5  = CARRY((\scan_controller|v_count [2] & !\scan_controller|Add1~3 ))
+// \controlador_de_varredura|Equal1~1_combout  = (!\controlador_de_varredura|v_count [7] & (!\controlador_de_varredura|v_count [6] & (!\controlador_de_varredura|v_count [5] & !\controlador_de_varredura|v_count [8])))
 
-	.dataa(\scan_controller|v_count [2]),
-	.datab(gnd),
-	.datac(gnd),
-	.datad(vcc),
-	.cin(\scan_controller|Add1~3 ),
-	.combout(\scan_controller|Add1~4_combout ),
-	.cout(\scan_controller|Add1~5 ));
-// synopsys translate_off
-defparam \scan_controller|Add1~4 .lut_mask = 16'hA50A;
-defparam \scan_controller|Add1~4 .sum_lutc_input = "cin";
-// synopsys translate_on
-
-// Location: LCCOMB_X6_Y35_N14
-cycloneive_lcell_comb \scan_controller|Add1~6 (
-// Equation(s):
-// \scan_controller|Add1~6_combout  = (\scan_controller|v_count [3] & (!\scan_controller|Add1~5 )) # (!\scan_controller|v_count [3] & ((\scan_controller|Add1~5 ) # (GND)))
-// \scan_controller|Add1~7  = CARRY((!\scan_controller|Add1~5 ) # (!\scan_controller|v_count [3]))
-
-	.dataa(gnd),
-	.datab(\scan_controller|v_count [3]),
-	.datac(gnd),
-	.datad(vcc),
-	.cin(\scan_controller|Add1~5 ),
-	.combout(\scan_controller|Add1~6_combout ),
-	.cout(\scan_controller|Add1~7 ));
-// synopsys translate_off
-defparam \scan_controller|Add1~6 .lut_mask = 16'h3C3F;
-defparam \scan_controller|Add1~6 .sum_lutc_input = "cin";
-// synopsys translate_on
-
-// Location: LCCOMB_X6_Y35_N28
-cycloneive_lcell_comb \scan_controller|v_count~2 (
-// Equation(s):
-// \scan_controller|v_count~2_combout  = (\scan_controller|Add1~6_combout  & !\scan_controller|Equal1~2_combout )
-
-	.dataa(gnd),
-	.datab(gnd),
-	.datac(\scan_controller|Add1~6_combout ),
-	.datad(\scan_controller|Equal1~2_combout ),
+	.dataa(\controlador_de_varredura|v_count [7]),
+	.datab(\controlador_de_varredura|v_count [6]),
+	.datac(\controlador_de_varredura|v_count [5]),
+	.datad(\controlador_de_varredura|v_count [8]),
 	.cin(gnd),
-	.combout(\scan_controller|v_count~2_combout ),
+	.combout(\controlador_de_varredura|Equal1~1_combout ),
 	.cout());
 // synopsys translate_off
-defparam \scan_controller|v_count~2 .lut_mask = 16'h00F0;
-defparam \scan_controller|v_count~2 .sum_lutc_input = "datac";
+defparam \controlador_de_varredura|Equal1~1 .lut_mask = 16'h0001;
+defparam \controlador_de_varredura|Equal1~1 .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: FF_X6_Y35_N29
-dffeas \scan_controller|v_count[3] (
-	.clk(\my_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
-	.d(\scan_controller|v_count~2_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(\scan_controller|Equal0~2_combout ),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\scan_controller|v_count [3]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \scan_controller|v_count[3] .is_wysiwyg = "true";
-defparam \scan_controller|v_count[3] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X6_Y35_N16
-cycloneive_lcell_comb \scan_controller|Add1~8 (
+// Location: LCCOMB_X22_Y34_N30
+cycloneive_lcell_comb \controlador_de_varredura|Add1~18 (
 // Equation(s):
-// \scan_controller|Add1~8_combout  = (\scan_controller|v_count [4] & (\scan_controller|Add1~7  $ (GND))) # (!\scan_controller|v_count [4] & (!\scan_controller|Add1~7  & VCC))
-// \scan_controller|Add1~9  = CARRY((\scan_controller|v_count [4] & !\scan_controller|Add1~7 ))
+// \controlador_de_varredura|Add1~18_combout  = \controlador_de_varredura|v_count [9] $ (\controlador_de_varredura|Add1~17 )
 
 	.dataa(gnd),
-	.datab(\scan_controller|v_count [4]),
+	.datab(\controlador_de_varredura|v_count [9]),
 	.datac(gnd),
-	.datad(vcc),
-	.cin(\scan_controller|Add1~7 ),
-	.combout(\scan_controller|Add1~8_combout ),
-	.cout(\scan_controller|Add1~9 ));
-// synopsys translate_off
-defparam \scan_controller|Add1~8 .lut_mask = 16'hC30C;
-defparam \scan_controller|Add1~8 .sum_lutc_input = "cin";
-// synopsys translate_on
-
-// Location: FF_X6_Y35_N17
-dffeas \scan_controller|v_count[4] (
-	.clk(\my_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
-	.d(\scan_controller|Add1~8_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(\scan_controller|Equal0~2_combout ),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\scan_controller|v_count [4]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \scan_controller|v_count[4] .is_wysiwyg = "true";
-defparam \scan_controller|v_count[4] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X6_Y35_N18
-cycloneive_lcell_comb \scan_controller|Add1~10 (
-// Equation(s):
-// \scan_controller|Add1~10_combout  = (\scan_controller|v_count [5] & (!\scan_controller|Add1~9 )) # (!\scan_controller|v_count [5] & ((\scan_controller|Add1~9 ) # (GND)))
-// \scan_controller|Add1~11  = CARRY((!\scan_controller|Add1~9 ) # (!\scan_controller|v_count [5]))
-
-	.dataa(gnd),
-	.datab(\scan_controller|v_count [5]),
-	.datac(gnd),
-	.datad(vcc),
-	.cin(\scan_controller|Add1~9 ),
-	.combout(\scan_controller|Add1~10_combout ),
-	.cout(\scan_controller|Add1~11 ));
-// synopsys translate_off
-defparam \scan_controller|Add1~10 .lut_mask = 16'h3C3F;
-defparam \scan_controller|Add1~10 .sum_lutc_input = "cin";
-// synopsys translate_on
-
-// Location: FF_X6_Y35_N19
-dffeas \scan_controller|v_count[5] (
-	.clk(\my_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
-	.d(\scan_controller|Add1~10_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(\scan_controller|Equal0~2_combout ),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\scan_controller|v_count [5]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \scan_controller|v_count[5] .is_wysiwyg = "true";
-defparam \scan_controller|v_count[5] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X6_Y35_N20
-cycloneive_lcell_comb \scan_controller|Add1~12 (
-// Equation(s):
-// \scan_controller|Add1~12_combout  = (\scan_controller|v_count [6] & (\scan_controller|Add1~11  $ (GND))) # (!\scan_controller|v_count [6] & (!\scan_controller|Add1~11  & VCC))
-// \scan_controller|Add1~13  = CARRY((\scan_controller|v_count [6] & !\scan_controller|Add1~11 ))
-
-	.dataa(gnd),
-	.datab(\scan_controller|v_count [6]),
-	.datac(gnd),
-	.datad(vcc),
-	.cin(\scan_controller|Add1~11 ),
-	.combout(\scan_controller|Add1~12_combout ),
-	.cout(\scan_controller|Add1~13 ));
-// synopsys translate_off
-defparam \scan_controller|Add1~12 .lut_mask = 16'hC30C;
-defparam \scan_controller|Add1~12 .sum_lutc_input = "cin";
-// synopsys translate_on
-
-// Location: FF_X6_Y35_N21
-dffeas \scan_controller|v_count[6] (
-	.clk(\my_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
-	.d(\scan_controller|Add1~12_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(\scan_controller|Equal0~2_combout ),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\scan_controller|v_count [6]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \scan_controller|v_count[6] .is_wysiwyg = "true";
-defparam \scan_controller|v_count[6] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X6_Y35_N22
-cycloneive_lcell_comb \scan_controller|Add1~14 (
-// Equation(s):
-// \scan_controller|Add1~14_combout  = (\scan_controller|v_count [7] & (!\scan_controller|Add1~13 )) # (!\scan_controller|v_count [7] & ((\scan_controller|Add1~13 ) # (GND)))
-// \scan_controller|Add1~15  = CARRY((!\scan_controller|Add1~13 ) # (!\scan_controller|v_count [7]))
-
-	.dataa(\scan_controller|v_count [7]),
-	.datab(gnd),
-	.datac(gnd),
-	.datad(vcc),
-	.cin(\scan_controller|Add1~13 ),
-	.combout(\scan_controller|Add1~14_combout ),
-	.cout(\scan_controller|Add1~15 ));
-// synopsys translate_off
-defparam \scan_controller|Add1~14 .lut_mask = 16'h5A5F;
-defparam \scan_controller|Add1~14 .sum_lutc_input = "cin";
-// synopsys translate_on
-
-// Location: FF_X6_Y35_N23
-dffeas \scan_controller|v_count[7] (
-	.clk(\my_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
-	.d(\scan_controller|Add1~14_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(\scan_controller|Equal0~2_combout ),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\scan_controller|v_count [7]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \scan_controller|v_count[7] .is_wysiwyg = "true";
-defparam \scan_controller|v_count[7] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X6_Y35_N6
-cycloneive_lcell_comb \scan_controller|Equal1~1 (
-// Equation(s):
-// \scan_controller|Equal1~1_combout  = (\scan_controller|v_count [2] & (!\scan_controller|v_count [5] & (!\scan_controller|v_count [7] & !\scan_controller|v_count [6])))
-
-	.dataa(\scan_controller|v_count [2]),
-	.datab(\scan_controller|v_count [5]),
-	.datac(\scan_controller|v_count [7]),
-	.datad(\scan_controller|v_count [6]),
-	.cin(gnd),
-	.combout(\scan_controller|Equal1~1_combout ),
-	.cout());
-// synopsys translate_off
-defparam \scan_controller|Equal1~1 .lut_mask = 16'h0002;
-defparam \scan_controller|Equal1~1 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: LCCOMB_X5_Y35_N0
-cycloneive_lcell_comb \scan_controller|Equal1~0 (
-// Equation(s):
-// \scan_controller|Equal1~0_combout  = (!\scan_controller|v_count [0] & (\scan_controller|v_count [3] & (!\scan_controller|v_count [1] & !\scan_controller|v_count [4])))
-
-	.dataa(\scan_controller|v_count [0]),
-	.datab(\scan_controller|v_count [3]),
-	.datac(\scan_controller|v_count [1]),
-	.datad(\scan_controller|v_count [4]),
-	.cin(gnd),
-	.combout(\scan_controller|Equal1~0_combout ),
-	.cout());
-// synopsys translate_off
-defparam \scan_controller|Equal1~0 .lut_mask = 16'h0004;
-defparam \scan_controller|Equal1~0 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: LCCOMB_X6_Y35_N24
-cycloneive_lcell_comb \scan_controller|Add1~16 (
-// Equation(s):
-// \scan_controller|Add1~16_combout  = (\scan_controller|v_count [8] & (\scan_controller|Add1~15  $ (GND))) # (!\scan_controller|v_count [8] & (!\scan_controller|Add1~15  & VCC))
-// \scan_controller|Add1~17  = CARRY((\scan_controller|v_count [8] & !\scan_controller|Add1~15 ))
-
-	.dataa(gnd),
-	.datab(\scan_controller|v_count [8]),
-	.datac(gnd),
-	.datad(vcc),
-	.cin(\scan_controller|Add1~15 ),
-	.combout(\scan_controller|Add1~16_combout ),
-	.cout(\scan_controller|Add1~17 ));
-// synopsys translate_off
-defparam \scan_controller|Add1~16 .lut_mask = 16'hC30C;
-defparam \scan_controller|Add1~16 .sum_lutc_input = "cin";
-// synopsys translate_on
-
-// Location: FF_X6_Y35_N25
-dffeas \scan_controller|v_count[8] (
-	.clk(\my_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
-	.d(\scan_controller|Add1~16_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(\scan_controller|Equal0~2_combout ),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\scan_controller|v_count [8]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \scan_controller|v_count[8] .is_wysiwyg = "true";
-defparam \scan_controller|v_count[8] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X6_Y35_N26
-cycloneive_lcell_comb \scan_controller|Add1~18 (
-// Equation(s):
-// \scan_controller|Add1~18_combout  = \scan_controller|Add1~17  $ (\scan_controller|v_count [9])
-
-	.dataa(gnd),
-	.datab(gnd),
-	.datac(gnd),
-	.datad(\scan_controller|v_count [9]),
-	.cin(\scan_controller|Add1~17 ),
-	.combout(\scan_controller|Add1~18_combout ),
-	.cout());
-// synopsys translate_off
-defparam \scan_controller|Add1~18 .lut_mask = 16'h0FF0;
-defparam \scan_controller|Add1~18 .sum_lutc_input = "cin";
-// synopsys translate_on
-
-// Location: LCCOMB_X6_Y35_N0
-cycloneive_lcell_comb \scan_controller|v_count~0 (
-// Equation(s):
-// \scan_controller|v_count~0_combout  = (\scan_controller|Add1~18_combout  & !\scan_controller|Equal1~2_combout )
-
-	.dataa(gnd),
-	.datab(gnd),
-	.datac(\scan_controller|Add1~18_combout ),
-	.datad(\scan_controller|Equal1~2_combout ),
-	.cin(gnd),
-	.combout(\scan_controller|v_count~0_combout ),
-	.cout());
-// synopsys translate_off
-defparam \scan_controller|v_count~0 .lut_mask = 16'h00F0;
-defparam \scan_controller|v_count~0 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: FF_X6_Y35_N1
-dffeas \scan_controller|v_count[9] (
-	.clk(\my_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
-	.d(\scan_controller|v_count~0_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(\scan_controller|Equal0~2_combout ),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\scan_controller|v_count [9]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \scan_controller|v_count[9] .is_wysiwyg = "true";
-defparam \scan_controller|v_count[9] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X5_Y35_N2
-cycloneive_lcell_comb \scan_controller|Equal1~2 (
-// Equation(s):
-// \scan_controller|Equal1~2_combout  = (\scan_controller|Equal1~1_combout  & (\scan_controller|Equal1~0_combout  & (\scan_controller|v_count [9] & !\scan_controller|v_count [8])))
-
-	.dataa(\scan_controller|Equal1~1_combout ),
-	.datab(\scan_controller|Equal1~0_combout ),
-	.datac(\scan_controller|v_count [9]),
-	.datad(\scan_controller|v_count [8]),
-	.cin(gnd),
-	.combout(\scan_controller|Equal1~2_combout ),
-	.cout());
-// synopsys translate_off
-defparam \scan_controller|Equal1~2 .lut_mask = 16'h0080;
-defparam \scan_controller|Equal1~2 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: LCCOMB_X6_Y35_N2
-cycloneive_lcell_comb \scan_controller|v_count~1 (
-// Equation(s):
-// \scan_controller|v_count~1_combout  = (!\scan_controller|Equal1~2_combout  & \scan_controller|Add1~4_combout )
-
-	.dataa(\scan_controller|Equal1~2_combout ),
-	.datab(gnd),
-	.datac(\scan_controller|Add1~4_combout ),
 	.datad(gnd),
-	.cin(gnd),
-	.combout(\scan_controller|v_count~1_combout ),
+	.cin(\controlador_de_varredura|Add1~17 ),
+	.combout(\controlador_de_varredura|Add1~18_combout ),
 	.cout());
 // synopsys translate_off
-defparam \scan_controller|v_count~1 .lut_mask = 16'h5050;
-defparam \scan_controller|v_count~1 .sum_lutc_input = "datac";
+defparam \controlador_de_varredura|Add1~18 .lut_mask = 16'h3C3C;
+defparam \controlador_de_varredura|Add1~18 .sum_lutc_input = "cin";
 // synopsys translate_on
 
-// Location: FF_X6_Y35_N3
-dffeas \scan_controller|v_count[2] (
-	.clk(\my_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
-	.d(\scan_controller|v_count~1_combout ),
+// Location: LCCOMB_X22_Y34_N8
+cycloneive_lcell_comb \controlador_de_varredura|v_count~0 (
+// Equation(s):
+// \controlador_de_varredura|v_count~0_combout  = (\controlador_de_varredura|Add1~18_combout  & !\controlador_de_varredura|Equal1~2_combout )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\controlador_de_varredura|Add1~18_combout ),
+	.datad(\controlador_de_varredura|Equal1~2_combout ),
+	.cin(gnd),
+	.combout(\controlador_de_varredura|v_count~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \controlador_de_varredura|v_count~0 .lut_mask = 16'h00F0;
+defparam \controlador_de_varredura|v_count~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X22_Y34_N9
+dffeas \controlador_de_varredura|v_count[9] (
+	.clk(\meu_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
+	.d(\controlador_de_varredura|v_count~0_combout ),
 	.asdata(vcc),
-	.clrn(vcc),
+	.clrn(\KEY[0]~inputclkctrl_outclk ),
 	.aload(gnd),
 	.sclr(gnd),
 	.sload(gnd),
-	.ena(\scan_controller|Equal0~2_combout ),
+	.ena(\controlador_de_varredura|Equal0~2_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
-	.q(\scan_controller|v_count [2]),
+	.q(\controlador_de_varredura|v_count [9]),
 	.prn(vcc));
 // synopsys translate_off
-defparam \scan_controller|v_count[2] .is_wysiwyg = "true";
-defparam \scan_controller|v_count[2] .power_up = "low";
+defparam \controlador_de_varredura|v_count[9] .is_wysiwyg = "true";
+defparam \controlador_de_varredura|v_count[9] .power_up = "low";
 // synopsys translate_on
 
-// Location: LCCOMB_X5_Y35_N10
-cycloneive_lcell_comb \scan_controller|vsync~0 (
+// Location: LCCOMB_X22_Y34_N12
+cycloneive_lcell_comb \controlador_de_varredura|Add1~0 (
 // Equation(s):
-// \scan_controller|vsync~0_combout  = (\scan_controller|v_count [2]) # (((\scan_controller|v_count [4]) # (!\scan_controller|v_count [1])) # (!\scan_controller|v_count [3]))
+// \controlador_de_varredura|Add1~0_combout  = \controlador_de_varredura|v_count [0] $ (VCC)
+// \controlador_de_varredura|Add1~1  = CARRY(\controlador_de_varredura|v_count [0])
 
-	.dataa(\scan_controller|v_count [2]),
-	.datab(\scan_controller|v_count [3]),
-	.datac(\scan_controller|v_count [1]),
-	.datad(\scan_controller|v_count [4]),
+	.dataa(gnd),
+	.datab(\controlador_de_varredura|v_count [0]),
+	.datac(gnd),
+	.datad(vcc),
 	.cin(gnd),
-	.combout(\scan_controller|vsync~0_combout ),
+	.combout(\controlador_de_varredura|Add1~0_combout ),
+	.cout(\controlador_de_varredura|Add1~1 ));
+// synopsys translate_off
+defparam \controlador_de_varredura|Add1~0 .lut_mask = 16'h33CC;
+defparam \controlador_de_varredura|Add1~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X22_Y34_N0
+cycloneive_lcell_comb \controlador_de_varredura|v_count~3 (
+// Equation(s):
+// \controlador_de_varredura|v_count~3_combout  = (!\controlador_de_varredura|Equal1~2_combout  & \controlador_de_varredura|Add1~0_combout )
+
+	.dataa(\controlador_de_varredura|Equal1~2_combout ),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\controlador_de_varredura|Add1~0_combout ),
+	.cin(gnd),
+	.combout(\controlador_de_varredura|v_count~3_combout ),
 	.cout());
 // synopsys translate_off
-defparam \scan_controller|vsync~0 .lut_mask = 16'hFFBF;
-defparam \scan_controller|vsync~0 .sum_lutc_input = "datac";
+defparam \controlador_de_varredura|v_count~3 .lut_mask = 16'h5500;
+defparam \controlador_de_varredura|v_count~3 .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: LCCOMB_X6_Y35_N30
+// Location: FF_X22_Y34_N1
+dffeas \controlador_de_varredura|v_count[0] (
+	.clk(\meu_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
+	.d(\controlador_de_varredura|v_count~3_combout ),
+	.asdata(vcc),
+	.clrn(\KEY[0]~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\controlador_de_varredura|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\controlador_de_varredura|v_count [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \controlador_de_varredura|v_count[0] .is_wysiwyg = "true";
+defparam \controlador_de_varredura|v_count[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X22_Y34_N14
+cycloneive_lcell_comb \controlador_de_varredura|Add1~2 (
+// Equation(s):
+// \controlador_de_varredura|Add1~2_combout  = (\controlador_de_varredura|v_count [1] & (!\controlador_de_varredura|Add1~1 )) # (!\controlador_de_varredura|v_count [1] & ((\controlador_de_varredura|Add1~1 ) # (GND)))
+// \controlador_de_varredura|Add1~3  = CARRY((!\controlador_de_varredura|Add1~1 ) # (!\controlador_de_varredura|v_count [1]))
+
+	.dataa(gnd),
+	.datab(\controlador_de_varredura|v_count [1]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\controlador_de_varredura|Add1~1 ),
+	.combout(\controlador_de_varredura|Add1~2_combout ),
+	.cout(\controlador_de_varredura|Add1~3 ));
+// synopsys translate_off
+defparam \controlador_de_varredura|Add1~2 .lut_mask = 16'h3C3F;
+defparam \controlador_de_varredura|Add1~2 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X22_Y34_N15
+dffeas \controlador_de_varredura|v_count[1] (
+	.clk(\meu_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
+	.d(\controlador_de_varredura|Add1~2_combout ),
+	.asdata(vcc),
+	.clrn(\KEY[0]~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\controlador_de_varredura|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\controlador_de_varredura|v_count [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \controlador_de_varredura|v_count[1] .is_wysiwyg = "true";
+defparam \controlador_de_varredura|v_count[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X21_Y34_N16
+cycloneive_lcell_comb \controlador_de_varredura|Equal1~0 (
+// Equation(s):
+// \controlador_de_varredura|Equal1~0_combout  = (!\controlador_de_varredura|v_count [4] & (\controlador_de_varredura|v_count [9] & (!\controlador_de_varredura|v_count [0] & !\controlador_de_varredura|v_count [1])))
+
+	.dataa(\controlador_de_varredura|v_count [4]),
+	.datab(\controlador_de_varredura|v_count [9]),
+	.datac(\controlador_de_varredura|v_count [0]),
+	.datad(\controlador_de_varredura|v_count [1]),
+	.cin(gnd),
+	.combout(\controlador_de_varredura|Equal1~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \controlador_de_varredura|Equal1~0 .lut_mask = 16'h0004;
+defparam \controlador_de_varredura|Equal1~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X22_Y34_N16
+cycloneive_lcell_comb \controlador_de_varredura|Add1~4 (
+// Equation(s):
+// \controlador_de_varredura|Add1~4_combout  = (\controlador_de_varredura|v_count [2] & (\controlador_de_varredura|Add1~3  $ (GND))) # (!\controlador_de_varredura|v_count [2] & (!\controlador_de_varredura|Add1~3  & VCC))
+// \controlador_de_varredura|Add1~5  = CARRY((\controlador_de_varredura|v_count [2] & !\controlador_de_varredura|Add1~3 ))
+
+	.dataa(\controlador_de_varredura|v_count [2]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\controlador_de_varredura|Add1~3 ),
+	.combout(\controlador_de_varredura|Add1~4_combout ),
+	.cout(\controlador_de_varredura|Add1~5 ));
+// synopsys translate_off
+defparam \controlador_de_varredura|Add1~4 .lut_mask = 16'hA50A;
+defparam \controlador_de_varredura|Add1~4 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X22_Y34_N10
+cycloneive_lcell_comb \controlador_de_varredura|v_count~1 (
+// Equation(s):
+// \controlador_de_varredura|v_count~1_combout  = (!\controlador_de_varredura|Equal1~2_combout  & \controlador_de_varredura|Add1~4_combout )
+
+	.dataa(\controlador_de_varredura|Equal1~2_combout ),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\controlador_de_varredura|Add1~4_combout ),
+	.cin(gnd),
+	.combout(\controlador_de_varredura|v_count~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \controlador_de_varredura|v_count~1 .lut_mask = 16'h5500;
+defparam \controlador_de_varredura|v_count~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X22_Y34_N11
+dffeas \controlador_de_varredura|v_count[2] (
+	.clk(\meu_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
+	.d(\controlador_de_varredura|v_count~1_combout ),
+	.asdata(vcc),
+	.clrn(\KEY[0]~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\controlador_de_varredura|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\controlador_de_varredura|v_count [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \controlador_de_varredura|v_count[2] .is_wysiwyg = "true";
+defparam \controlador_de_varredura|v_count[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X21_Y34_N2
+cycloneive_lcell_comb \controlador_de_varredura|Equal1~2 (
+// Equation(s):
+// \controlador_de_varredura|Equal1~2_combout  = (\controlador_de_varredura|Equal1~1_combout  & (\controlador_de_varredura|Equal1~0_combout  & (\controlador_de_varredura|v_count [2] & \controlador_de_varredura|v_count [3])))
+
+	.dataa(\controlador_de_varredura|Equal1~1_combout ),
+	.datab(\controlador_de_varredura|Equal1~0_combout ),
+	.datac(\controlador_de_varredura|v_count [2]),
+	.datad(\controlador_de_varredura|v_count [3]),
+	.cin(gnd),
+	.combout(\controlador_de_varredura|Equal1~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \controlador_de_varredura|Equal1~2 .lut_mask = 16'h8000;
+defparam \controlador_de_varredura|Equal1~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X22_Y34_N18
+cycloneive_lcell_comb \controlador_de_varredura|Add1~6 (
+// Equation(s):
+// \controlador_de_varredura|Add1~6_combout  = (\controlador_de_varredura|v_count [3] & (!\controlador_de_varredura|Add1~5 )) # (!\controlador_de_varredura|v_count [3] & ((\controlador_de_varredura|Add1~5 ) # (GND)))
+// \controlador_de_varredura|Add1~7  = CARRY((!\controlador_de_varredura|Add1~5 ) # (!\controlador_de_varredura|v_count [3]))
+
+	.dataa(gnd),
+	.datab(\controlador_de_varredura|v_count [3]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\controlador_de_varredura|Add1~5 ),
+	.combout(\controlador_de_varredura|Add1~6_combout ),
+	.cout(\controlador_de_varredura|Add1~7 ));
+// synopsys translate_off
+defparam \controlador_de_varredura|Add1~6 .lut_mask = 16'h3C3F;
+defparam \controlador_de_varredura|Add1~6 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X22_Y34_N4
+cycloneive_lcell_comb \controlador_de_varredura|v_count~2 (
+// Equation(s):
+// \controlador_de_varredura|v_count~2_combout  = (!\controlador_de_varredura|Equal1~2_combout  & \controlador_de_varredura|Add1~6_combout )
+
+	.dataa(\controlador_de_varredura|Equal1~2_combout ),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\controlador_de_varredura|Add1~6_combout ),
+	.cin(gnd),
+	.combout(\controlador_de_varredura|v_count~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \controlador_de_varredura|v_count~2 .lut_mask = 16'h5500;
+defparam \controlador_de_varredura|v_count~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X22_Y34_N5
+dffeas \controlador_de_varredura|v_count[3] (
+	.clk(\meu_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
+	.d(\controlador_de_varredura|v_count~2_combout ),
+	.asdata(vcc),
+	.clrn(\KEY[0]~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\controlador_de_varredura|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\controlador_de_varredura|v_count [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \controlador_de_varredura|v_count[3] .is_wysiwyg = "true";
+defparam \controlador_de_varredura|v_count[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X22_Y34_N20
+cycloneive_lcell_comb \controlador_de_varredura|Add1~8 (
+// Equation(s):
+// \controlador_de_varredura|Add1~8_combout  = (\controlador_de_varredura|v_count [4] & (\controlador_de_varredura|Add1~7  $ (GND))) # (!\controlador_de_varredura|v_count [4] & (!\controlador_de_varredura|Add1~7  & VCC))
+// \controlador_de_varredura|Add1~9  = CARRY((\controlador_de_varredura|v_count [4] & !\controlador_de_varredura|Add1~7 ))
+
+	.dataa(gnd),
+	.datab(\controlador_de_varredura|v_count [4]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\controlador_de_varredura|Add1~7 ),
+	.combout(\controlador_de_varredura|Add1~8_combout ),
+	.cout(\controlador_de_varredura|Add1~9 ));
+// synopsys translate_off
+defparam \controlador_de_varredura|Add1~8 .lut_mask = 16'hC30C;
+defparam \controlador_de_varredura|Add1~8 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X22_Y34_N21
+dffeas \controlador_de_varredura|v_count[4] (
+	.clk(\meu_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
+	.d(\controlador_de_varredura|Add1~8_combout ),
+	.asdata(vcc),
+	.clrn(\KEY[0]~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\controlador_de_varredura|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\controlador_de_varredura|v_count [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \controlador_de_varredura|v_count[4] .is_wysiwyg = "true";
+defparam \controlador_de_varredura|v_count[4] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X22_Y34_N22
+cycloneive_lcell_comb \controlador_de_varredura|Add1~10 (
+// Equation(s):
+// \controlador_de_varredura|Add1~10_combout  = (\controlador_de_varredura|v_count [5] & (!\controlador_de_varredura|Add1~9 )) # (!\controlador_de_varredura|v_count [5] & ((\controlador_de_varredura|Add1~9 ) # (GND)))
+// \controlador_de_varredura|Add1~11  = CARRY((!\controlador_de_varredura|Add1~9 ) # (!\controlador_de_varredura|v_count [5]))
+
+	.dataa(\controlador_de_varredura|v_count [5]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\controlador_de_varredura|Add1~9 ),
+	.combout(\controlador_de_varredura|Add1~10_combout ),
+	.cout(\controlador_de_varredura|Add1~11 ));
+// synopsys translate_off
+defparam \controlador_de_varredura|Add1~10 .lut_mask = 16'h5A5F;
+defparam \controlador_de_varredura|Add1~10 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X22_Y34_N23
+dffeas \controlador_de_varredura|v_count[5] (
+	.clk(\meu_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
+	.d(\controlador_de_varredura|Add1~10_combout ),
+	.asdata(vcc),
+	.clrn(\KEY[0]~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\controlador_de_varredura|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\controlador_de_varredura|v_count [5]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \controlador_de_varredura|v_count[5] .is_wysiwyg = "true";
+defparam \controlador_de_varredura|v_count[5] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X22_Y34_N24
+cycloneive_lcell_comb \controlador_de_varredura|Add1~12 (
+// Equation(s):
+// \controlador_de_varredura|Add1~12_combout  = (\controlador_de_varredura|v_count [6] & (\controlador_de_varredura|Add1~11  $ (GND))) # (!\controlador_de_varredura|v_count [6] & (!\controlador_de_varredura|Add1~11  & VCC))
+// \controlador_de_varredura|Add1~13  = CARRY((\controlador_de_varredura|v_count [6] & !\controlador_de_varredura|Add1~11 ))
+
+	.dataa(gnd),
+	.datab(\controlador_de_varredura|v_count [6]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\controlador_de_varredura|Add1~11 ),
+	.combout(\controlador_de_varredura|Add1~12_combout ),
+	.cout(\controlador_de_varredura|Add1~13 ));
+// synopsys translate_off
+defparam \controlador_de_varredura|Add1~12 .lut_mask = 16'hC30C;
+defparam \controlador_de_varredura|Add1~12 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X22_Y34_N25
+dffeas \controlador_de_varredura|v_count[6] (
+	.clk(\meu_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
+	.d(\controlador_de_varredura|Add1~12_combout ),
+	.asdata(vcc),
+	.clrn(\KEY[0]~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\controlador_de_varredura|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\controlador_de_varredura|v_count [6]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \controlador_de_varredura|v_count[6] .is_wysiwyg = "true";
+defparam \controlador_de_varredura|v_count[6] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X22_Y34_N27
+dffeas \controlador_de_varredura|v_count[7] (
+	.clk(\meu_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_outclk ),
+	.d(\controlador_de_varredura|Add1~14_combout ),
+	.asdata(vcc),
+	.clrn(\KEY[0]~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\controlador_de_varredura|Equal0~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\controlador_de_varredura|v_count [7]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \controlador_de_varredura|v_count[7] .is_wysiwyg = "true";
+defparam \controlador_de_varredura|v_count[7] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X22_Y34_N6
 cycloneive_lcell_comb \always0~0 (
 // Equation(s):
-// \always0~0_combout  = (\scan_controller|v_count [5] & (\scan_controller|v_count [7] & \scan_controller|v_count [6]))
+// \always0~0_combout  = (\controlador_de_varredura|v_count [7] & (\controlador_de_varredura|v_count [5] & \controlador_de_varredura|v_count [6]))
 
-	.dataa(gnd),
-	.datab(\scan_controller|v_count [5]),
-	.datac(\scan_controller|v_count [7]),
-	.datad(\scan_controller|v_count [6]),
+	.dataa(\controlador_de_varredura|v_count [7]),
+	.datab(gnd),
+	.datac(\controlador_de_varredura|v_count [5]),
+	.datad(\controlador_de_varredura|v_count [6]),
 	.cin(gnd),
 	.combout(\always0~0_combout ),
 	.cout());
 // synopsys translate_off
-defparam \always0~0 .lut_mask = 16'hC000;
+defparam \always0~0 .lut_mask = 16'hA000;
 defparam \always0~0 .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: LCCOMB_X5_Y35_N4
-cycloneive_lcell_comb \scan_controller|vsync~1 (
+// Location: LCCOMB_X21_Y34_N20
+cycloneive_lcell_comb \controlador_de_varredura|vsync~0 (
 // Equation(s):
-// \scan_controller|vsync~1_combout  = (\scan_controller|vsync~0_combout ) # ((\scan_controller|v_count [9]) # ((!\scan_controller|v_count [8]) # (!\always0~0_combout )))
+// \controlador_de_varredura|vsync~0_combout  = (\controlador_de_varredura|v_count [4]) # (((\controlador_de_varredura|v_count [2]) # (!\controlador_de_varredura|v_count [3])) # (!\controlador_de_varredura|v_count [8]))
 
-	.dataa(\scan_controller|vsync~0_combout ),
-	.datab(\scan_controller|v_count [9]),
-	.datac(\always0~0_combout ),
-	.datad(\scan_controller|v_count [8]),
+	.dataa(\controlador_de_varredura|v_count [4]),
+	.datab(\controlador_de_varredura|v_count [8]),
+	.datac(\controlador_de_varredura|v_count [2]),
+	.datad(\controlador_de_varredura|v_count [3]),
 	.cin(gnd),
-	.combout(\scan_controller|vsync~1_combout ),
+	.combout(\controlador_de_varredura|vsync~0_combout ),
 	.cout());
 // synopsys translate_off
-defparam \scan_controller|vsync~1 .lut_mask = 16'hEFFF;
-defparam \scan_controller|vsync~1 .sum_lutc_input = "datac";
+defparam \controlador_de_varredura|vsync~0 .lut_mask = 16'hFBFF;
+defparam \controlador_de_varredura|vsync~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X21_Y34_N14
+cycloneive_lcell_comb \controlador_de_varredura|vsync~1 (
+// Equation(s):
+// \controlador_de_varredura|vsync~1_combout  = (((\controlador_de_varredura|v_count [9]) # (\controlador_de_varredura|vsync~0_combout )) # (!\controlador_de_varredura|v_count [1])) # (!\always0~0_combout )
+
+	.dataa(\always0~0_combout ),
+	.datab(\controlador_de_varredura|v_count [1]),
+	.datac(\controlador_de_varredura|v_count [9]),
+	.datad(\controlador_de_varredura|vsync~0_combout ),
+	.cin(gnd),
+	.combout(\controlador_de_varredura|vsync~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \controlador_de_varredura|vsync~1 .lut_mask = 16'hFFF7;
+defparam \controlador_de_varredura|vsync~1 .sum_lutc_input = "datac";
 // synopsys translate_on
 
 // Location: CLKCTRL_PLL1E0
-cycloneive_clkctrl \my_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_e_VGA_CLK (
+cycloneive_clkctrl \meu_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_e_VGA_CLK (
 	.ena(vcc),
-	.inclk({vcc,vcc,vcc,\my_pll|altpll_component|auto_generated|wire_pll1_clk [0]}),
+	.inclk({vcc,vcc,vcc,\meu_pll|altpll_component|auto_generated|wire_pll1_clk [0]}),
 	.clkselect(2'b00),
 	.devclrn(devclrn),
 	.devpor(devpor),
-	.outclk(\my_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_e_VGA_CLK_outclk ));
+	.outclk(\meu_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_e_VGA_CLK_outclk ));
 // synopsys translate_off
-defparam \my_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_e_VGA_CLK .clock_type = "external clock output";
-defparam \my_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_e_VGA_CLK .ena_register_mode = "double register";
+defparam \meu_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_e_VGA_CLK .clock_type = "external clock output";
+defparam \meu_pll|altpll_component|auto_generated|wire_pll1_clk[0]~clkctrl_e_VGA_CLK .ena_register_mode = "double register";
 // synopsys translate_on
 
-// Location: LCCOMB_X5_Y35_N6
-cycloneive_lcell_comb \scan_controller|video_on~0 (
+// Location: LCCOMB_X21_Y34_N8
+cycloneive_lcell_comb \controlador_de_varredura|video_on~0 (
 // Equation(s):
-// \scan_controller|video_on~0_combout  = (!\scan_controller|v_count [9] & (((!\scan_controller|h_count [7] & !\scan_controller|h_count [8])) # (!\scan_controller|h_count [9])))
+// \controlador_de_varredura|video_on~0_combout  = (!\controlador_de_varredura|v_count [9] & (((!\controlador_de_varredura|h_count [8] & !\controlador_de_varredura|h_count [7])) # (!\controlador_de_varredura|h_count [9])))
 
-	.dataa(\scan_controller|h_count [9]),
-	.datab(\scan_controller|h_count [7]),
-	.datac(\scan_controller|v_count [9]),
-	.datad(\scan_controller|h_count [8]),
+	.dataa(\controlador_de_varredura|h_count [9]),
+	.datab(\controlador_de_varredura|h_count [8]),
+	.datac(\controlador_de_varredura|v_count [9]),
+	.datad(\controlador_de_varredura|h_count [7]),
 	.cin(gnd),
-	.combout(\scan_controller|video_on~0_combout ),
+	.combout(\controlador_de_varredura|video_on~0_combout ),
 	.cout());
 // synopsys translate_off
-defparam \scan_controller|video_on~0 .lut_mask = 16'h0507;
-defparam \scan_controller|video_on~0 .sum_lutc_input = "datac";
+defparam \controlador_de_varredura|video_on~0 .lut_mask = 16'h0507;
+defparam \controlador_de_varredura|video_on~0 .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: LCCOMB_X5_Y35_N24
-cycloneive_lcell_comb \scan_controller|video_on~1 (
+// Location: LCCOMB_X21_Y34_N10
+cycloneive_lcell_comb \controlador_de_varredura|video_on~1 (
 // Equation(s):
-// \scan_controller|video_on~1_combout  = (\scan_controller|video_on~0_combout  & ((!\scan_controller|v_count [8]) # (!\always0~0_combout )))
+// \controlador_de_varredura|video_on~1_combout  = (\controlador_de_varredura|video_on~0_combout  & ((!\controlador_de_varredura|v_count [8]) # (!\always0~0_combout )))
 
 	.dataa(\always0~0_combout ),
-	.datab(\scan_controller|v_count [8]),
-	.datac(gnd),
-	.datad(\scan_controller|video_on~0_combout ),
+	.datab(gnd),
+	.datac(\controlador_de_varredura|video_on~0_combout ),
+	.datad(\controlador_de_varredura|v_count [8]),
 	.cin(gnd),
-	.combout(\scan_controller|video_on~1_combout ),
+	.combout(\controlador_de_varredura|video_on~1_combout ),
 	.cout());
 // synopsys translate_off
-defparam \scan_controller|video_on~1 .lut_mask = 16'h7700;
-defparam \scan_controller|video_on~1 .sum_lutc_input = "datac";
+defparam \controlador_de_varredura|video_on~1 .lut_mask = 16'h50F0;
+defparam \controlador_de_varredura|video_on~1 .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: LCCOMB_X5_Y35_N14
-cycloneive_lcell_comb \always0~2 (
-// Equation(s):
-// \always0~2_combout  = (!\scan_controller|v_count [9] & ((\scan_controller|h_count [6] & (!\scan_controller|h_count [5] & !\scan_controller|h_count [4])) # (!\scan_controller|h_count [6] & (\scan_controller|h_count [5] & \scan_controller|h_count [4]))))
-
-	.dataa(\scan_controller|h_count [6]),
-	.datab(\scan_controller|h_count [5]),
-	.datac(\scan_controller|v_count [9]),
-	.datad(\scan_controller|h_count [4]),
-	.cin(gnd),
-	.combout(\always0~2_combout ),
-	.cout());
-// synopsys translate_off
-defparam \always0~2 .lut_mask = 16'h0402;
-defparam \always0~2 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: LCCOMB_X5_Y35_N16
-cycloneive_lcell_comb \always0~3 (
-// Equation(s):
-// \always0~3_combout  = (!\scan_controller|h_count [9] & (!\scan_controller|h_count [7] & (\always0~2_combout  & \scan_controller|h_count [8])))
-
-	.dataa(\scan_controller|h_count [9]),
-	.datab(\scan_controller|h_count [7]),
-	.datac(\always0~2_combout ),
-	.datad(\scan_controller|h_count [8]),
-	.cin(gnd),
-	.combout(\always0~3_combout ),
-	.cout());
-// synopsys translate_off
-defparam \always0~3 .lut_mask = 16'h1000;
-defparam \always0~3 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: LCCOMB_X5_Y35_N26
-cycloneive_lcell_comb \LessThan2~0 (
-// Equation(s):
-// \LessThan2~0_combout  = (\scan_controller|v_count [0]) # ((\scan_controller|v_count [3]) # ((\scan_controller|v_count [1]) # (\scan_controller|v_count [4])))
-
-	.dataa(\scan_controller|v_count [0]),
-	.datab(\scan_controller|v_count [3]),
-	.datac(\scan_controller|v_count [1]),
-	.datad(\scan_controller|v_count [4]),
-	.cin(gnd),
-	.combout(\LessThan2~0_combout ),
-	.cout());
-// synopsys translate_off
-defparam \LessThan2~0 .lut_mask = 16'hFFFE;
-defparam \LessThan2~0 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: LCCOMB_X4_Y35_N28
+// Location: LCCOMB_X20_Y34_N30
 cycloneive_lcell_comb \LessThan0~0 (
 // Equation(s):
-// \LessThan0~0_combout  = (!\scan_controller|h_count [3] & (!\scan_controller|h_count [2] & (!\scan_controller|h_count [0] & !\scan_controller|h_count [1])))
+// \LessThan0~0_combout  = (!\controlador_de_varredura|h_count [2] & (!\controlador_de_varredura|h_count [6] & (!\controlador_de_varredura|h_count [3] & !\controlador_de_varredura|h_count [1])))
 
-	.dataa(\scan_controller|h_count [3]),
-	.datab(\scan_controller|h_count [2]),
-	.datac(\scan_controller|h_count [0]),
-	.datad(\scan_controller|h_count [1]),
+	.dataa(\controlador_de_varredura|h_count [2]),
+	.datab(\controlador_de_varredura|h_count [6]),
+	.datac(\controlador_de_varredura|h_count [3]),
+	.datad(\controlador_de_varredura|h_count [1]),
 	.cin(gnd),
 	.combout(\LessThan0~0_combout ),
 	.cout());
@@ -1855,71 +1832,124 @@ defparam \LessThan0~0 .lut_mask = 16'h0001;
 defparam \LessThan0~0 .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: LCCOMB_X5_Y35_N28
+// Location: LCCOMB_X21_Y34_N28
+cycloneive_lcell_comb \LessThan2~0 (
+// Equation(s):
+// \LessThan2~0_combout  = (\controlador_de_varredura|v_count [4]) # ((\controlador_de_varredura|v_count [1]) # ((\controlador_de_varredura|v_count [0]) # (\controlador_de_varredura|v_count [3])))
+
+	.dataa(\controlador_de_varredura|v_count [4]),
+	.datab(\controlador_de_varredura|v_count [1]),
+	.datac(\controlador_de_varredura|v_count [0]),
+	.datad(\controlador_de_varredura|v_count [3]),
+	.cin(gnd),
+	.combout(\LessThan2~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \LessThan2~0 .lut_mask = 16'hFFFE;
+defparam \LessThan2~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X21_Y34_N6
 cycloneive_lcell_comb \always0~1 (
 // Equation(s):
-// \always0~1_combout  = (\LessThan2~0_combout  & (((\scan_controller|h_count [6])) # (!\LessThan0~0_combout ))) # (!\LessThan2~0_combout  & (\scan_controller|v_count [2] & ((\scan_controller|h_count [6]) # (!\LessThan0~0_combout ))))
+// \always0~1_combout  = (\controlador_de_varredura|h_count [0] & (((\controlador_de_varredura|v_count [2]) # (\LessThan2~0_combout )))) # (!\controlador_de_varredura|h_count [0] & (!\LessThan0~0_combout  & ((\controlador_de_varredura|v_count [2]) # 
+// (\LessThan2~0_combout ))))
 
-	.dataa(\LessThan2~0_combout ),
+	.dataa(\controlador_de_varredura|h_count [0]),
 	.datab(\LessThan0~0_combout ),
-	.datac(\scan_controller|h_count [6]),
-	.datad(\scan_controller|v_count [2]),
+	.datac(\controlador_de_varredura|v_count [2]),
+	.datad(\LessThan2~0_combout ),
 	.cin(gnd),
 	.combout(\always0~1_combout ),
 	.cout());
 // synopsys translate_off
-defparam \always0~1 .lut_mask = 16'hF3A2;
+defparam \always0~1 .lut_mask = 16'hBBB0;
 defparam \always0~1 .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: LCCOMB_X5_Y35_N18
+// Location: LCCOMB_X21_Y34_N0
+cycloneive_lcell_comb \always0~2 (
+// Equation(s):
+// \always0~2_combout  = (!\controlador_de_varredura|h_count [9] & ((\controlador_de_varredura|h_count [5] & (!\controlador_de_varredura|h_count [6] & \controlador_de_varredura|h_count [4])) # (!\controlador_de_varredura|h_count [5] & 
+// (\controlador_de_varredura|h_count [6] & !\controlador_de_varredura|h_count [4]))))
+
+	.dataa(\controlador_de_varredura|h_count [5]),
+	.datab(\controlador_de_varredura|h_count [6]),
+	.datac(\controlador_de_varredura|h_count [4]),
+	.datad(\controlador_de_varredura|h_count [9]),
+	.cin(gnd),
+	.combout(\always0~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \always0~2 .lut_mask = 16'h0024;
+defparam \always0~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X21_Y34_N18
+cycloneive_lcell_comb \always0~3 (
+// Equation(s):
+// \always0~3_combout  = (!\controlador_de_varredura|v_count [8] & (\always0~2_combout  & (\controlador_de_varredura|h_count [8] & !\controlador_de_varredura|h_count [7])))
+
+	.dataa(\controlador_de_varredura|v_count [8]),
+	.datab(\always0~2_combout ),
+	.datac(\controlador_de_varredura|h_count [8]),
+	.datad(\controlador_de_varredura|h_count [7]),
+	.cin(gnd),
+	.combout(\always0~3_combout ),
+	.cout());
+// synopsys translate_off
+defparam \always0~3 .lut_mask = 16'h0040;
+defparam \always0~3 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X21_Y34_N4
 cycloneive_lcell_comb \always0~4 (
 // Equation(s):
-// \always0~4_combout  = (\always0~3_combout  & (\always0~1_combout  & (\always0~0_combout  & !\scan_controller|v_count [8])))
+// \always0~4_combout  = (\always0~1_combout  & (\always0~3_combout  & (!\controlador_de_varredura|v_count [9] & \always0~0_combout )))
 
-	.dataa(\always0~3_combout ),
-	.datab(\always0~1_combout ),
-	.datac(\always0~0_combout ),
-	.datad(\scan_controller|v_count [8]),
+	.dataa(\always0~1_combout ),
+	.datab(\always0~3_combout ),
+	.datac(\controlador_de_varredura|v_count [9]),
+	.datad(\always0~0_combout ),
 	.cin(gnd),
 	.combout(\always0~4_combout ),
 	.cout());
 // synopsys translate_off
-defparam \always0~4 .lut_mask = 16'h0080;
+defparam \always0~4 .lut_mask = 16'h0800;
 defparam \always0~4 .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: LCCOMB_X5_Y35_N20
+// Location: LCCOMB_X21_Y34_N12
 cycloneive_lcell_comb \VGA_R~2 (
 // Equation(s):
-// \VGA_R~2_combout  = ((\always0~4_combout ) # ((\always0~0_combout  & \scan_controller|v_count [8]))) # (!\scan_controller|video_on~0_combout )
+// \VGA_R~2_combout  = (\always0~4_combout ) # (((\always0~0_combout  & \controlador_de_varredura|v_count [8])) # (!\controlador_de_varredura|video_on~0_combout ))
 
-	.dataa(\scan_controller|video_on~0_combout ),
+	.dataa(\always0~0_combout ),
 	.datab(\always0~4_combout ),
-	.datac(\always0~0_combout ),
-	.datad(\scan_controller|v_count [8]),
+	.datac(\controlador_de_varredura|video_on~0_combout ),
+	.datad(\controlador_de_varredura|v_count [8]),
 	.cin(gnd),
 	.combout(\VGA_R~2_combout ),
 	.cout());
 // synopsys translate_off
-defparam \VGA_R~2 .lut_mask = 16'hFDDD;
+defparam \VGA_R~2 .lut_mask = 16'hEFCF;
 defparam \VGA_R~2 .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: LCCOMB_X5_Y35_N30
+// Location: LCCOMB_X21_Y34_N30
 cycloneive_lcell_comb \VGA_G~2 (
 // Equation(s):
-// \VGA_G~2_combout  = (\scan_controller|video_on~0_combout  & (\always0~4_combout  & ((!\scan_controller|v_count [8]) # (!\always0~0_combout ))))
+// \VGA_G~2_combout  = (\always0~4_combout  & (\controlador_de_varredura|video_on~0_combout  & ((!\controlador_de_varredura|v_count [8]) # (!\always0~0_combout ))))
 
-	.dataa(\scan_controller|video_on~0_combout ),
+	.dataa(\always0~0_combout ),
 	.datab(\always0~4_combout ),
-	.datac(\always0~0_combout ),
-	.datad(\scan_controller|v_count [8]),
+	.datac(\controlador_de_varredura|video_on~0_combout ),
+	.datad(\controlador_de_varredura|v_count [8]),
 	.cin(gnd),
 	.combout(\VGA_G~2_combout ),
 	.cout());
 // synopsys translate_off
-defparam \VGA_G~2 .lut_mask = 16'h0888;
+defparam \VGA_G~2 .lut_mask = 16'h40C0;
 defparam \VGA_G~2 .sum_lutc_input = "datac";
 // synopsys translate_on
 
