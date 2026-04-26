@@ -1,9 +1,6 @@
 # Controlador VGA 640x480 - FPGA (Cyclone IV)
 
-### Este repositório contém o código-fonte em Verilog para a implementação de um controlador de vídeo VGA padrão VESA (640x480 a 60Hz) desenvolvido para a placa de desenvolvimento Altera/Intel DE2-115.
 ## 1. Arquitetura e Função dos Arquivos Principais
-
-### O projeto é modularizado para separar a geração de clock, a matemática de varredura e a definição de cores. (Nota: Arquivos gerados por compilação como .rpt, diretórios db, incremental_db e pastas work são ignorados no versionamento).
 
     vga_pll.v (Gerador de Clock): Arquivo instanciado via MegaWizard/ALTPLL. Ele recebe o clock bruto de 50 MHz da placa (Pino Y2) e realiza a divisão/multiplicação via hardware para gerar exatamente 25.175 MHz, que é a frequência exigida pelo padrão VGA para 60Hz.
 
@@ -14,8 +11,6 @@
     tb_vga_sync.v (Testbench / Ambiente de Simulação): Arquivo exclusivo para validação virtual. Ele não é sintetizado para a placa. Ele gera um clock simulado e estímulos de reset para o vga_sync.v, permitindo debugar a matemática dos pulsos e contadores via ModelSim antes de gravar o hardware.
 
 ## 2. Comandos para Simulação (ModelSim Testbench)
-
-### Para validar o funcionamento do controlador sem a necessidade da placa física, utilizamos o ModelSim.
 
     Abra o ModelSim e navegue até a pasta do projeto via terminal interno (Transcript):
     Tcl
@@ -54,7 +49,7 @@
 
 ## 3. Resultados Esperados (Homologação da Varredura)
 
-Ao rodar o Testbench, você deve analisar o gráfico gerado (Waveform) em busca destes comportamentos exatos para garantir que o padrão VESA foi respeitado:
+Ao rodar o Testbench, você deve analisar o gráfico gerado (Waveform) em busca destes comportamentos para garantir que o padrão VESA foi respeitado:
 
     Contadores Limites:
 
@@ -71,8 +66,7 @@ Ao rodar o Testbench, você deve analisar o gráfico gerado (Waveform) em busca 
         O sinal hsync passa a maior parte do tempo em estado lógico Alto (1). Ele deve apresentar um pulso Baixo (0) estritamente entre a contagem pixel_x 656 e 752.
         O sinal vsync também é ativo em estado lógico Alto (1). Ele deve apresentar um pulso Baixo (0) estritamente entre as linhas pixel_y 490 e 492.
 
-        <img width="1060" height="460" alt="image" src="https://github.com/user-attachments/assets/5c407faf-333e-49c6-ba8c-b18087b6e01c" />
-
+        ![Wave] (https://github.com/user-attachments/assets/5c407faf-333e-49c6-ba8c-b18087b6e01c)
 
 ## 4. Como Abrir o Projeto no Quartus (Síntese e Gravação)
 
