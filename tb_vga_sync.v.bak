@@ -20,14 +20,14 @@ module tb_vga_sync();
         .video_on(video_on)
     );
 
-    always #20 clk_25mhz = ~clk_25mhz; // 20ns * 2 = 40ns -> f = 1/40 = 25Mhz
+    always #20 clk_25mhz = ~clk_25mhz;
 
     initial begin
         clk_25mhz = 0;
         rst = 1; 
-        #100;     // tempo para estabilizar
+        #100;
         rst = 0; 
-        #16800000;  // tempo de execucao
+        #64000;
         $stop; 
     end
 

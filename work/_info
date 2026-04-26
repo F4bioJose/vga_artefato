@@ -9,13 +9,13 @@ z2
 cModel Technology
 Z0 d/home/fabiojas/intelFPGA_lite/projeto_fpga/artefato3_vga
 vtb_vga_sync
-Z1 !s110 1777143810
+Z1 !s110 1777162180
 !i10b 1
-!s100 ld`gh_b0RA9[2m>FRE<392
-IGVFCcTa5Qi9E83m1_MaeM1
+!s100 5P74fc=TcJ[_H1>J0:b7@3
+IcED>7cZ5Hg6lE@CUeOCYo1
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 R0
-w1777141450
+w1777162038
 8tb_vga_sync.v
 Ftb_vga_sync.v
 L0 3
@@ -23,7 +23,7 @@ Z3 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z4 !s108 1777143810.000000
+Z4 !s108 1777162180.000000
 Z5 !s107 tb_vga_sync.v|vga_sync.v|
 Z6 !s90 -reportprogress|300|vga_sync.v|tb_vga_sync.v|
 !i113 1
@@ -35,7 +35,7 @@ R1
 ITdY8D31NF<G_<I91bRnfG1
 R2
 R0
-w1777143706
+w1777160212
 8vga_sync.v
 Fvga_sync.v
 L0 1

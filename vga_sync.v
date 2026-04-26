@@ -3,7 +3,7 @@ module vga_sync (
     input wire rst,           // O reset está aqui!
     output reg hsync,
     output reg vsync,
-    output reg [9:0] pixel_x,
+    output reg [9:0] pixel_x, // 2^10 = 1024 (mascara suficiente para H_TOTAL) 
     output reg [9:0] pixel_y,
     output reg video_on
 );
@@ -21,9 +21,9 @@ module vga_sync (
 
     always @(posedge clk or posedge rst) begin
         if (rst) v_count <= 0;
-        else if (h_count == H_TOTAL - 1) begin
+        else if (h_count == H_TOTAL - 1) begin         // hsync começa em 1 (high) 
             if (v_count == V_TOTAL - 1) v_count <= 0;
-            else v_count <= v_count + 1;
+            else v_count <= v_count + 1;             // incrementa vsync quando a contagem de hsync chega a 800
         end
     end
 

@@ -35,7 +35,8 @@ module top_vga (
         .pixel_y(pixel_y),
         .video_on(video_on)
     );
-
+		
+		// Quadrado verde com fundo cinza
     always @(*) begin
         if (video_on == 1'b0) begin
             VGA_R = 8'd0; VGA_G = 8'd0; VGA_B = 8'd0;
