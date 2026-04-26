@@ -46,6 +46,8 @@
     # Executa a simulação e ajusta o zoom na tela
     run -all
     wave zoom full
+    
+<img width="1060" height="460" alt="image" src="https://github.com/user-attachments/assets/a949be18-ca37-43b9-89d8-c85c975ade76" />
 
 ## 3. Resultados Esperados (Homologação da Varredura)
 
@@ -65,10 +67,7 @@ Ao rodar o Testbench, você deve analisar o gráfico gerado (Waveform) em busca 
 
         O sinal hsync passa a maior parte do tempo em estado lógico Alto (1). Ele deve apresentar um pulso Baixo (0) estritamente entre a contagem pixel_x 656 e 752.
         O sinal vsync também é ativo em estado lógico Alto (1). Ele deve apresentar um pulso Baixo (0) estritamente entre as linhas pixel_y 490 e 492.
-
-        ![Wave](https://github.com/user-attachments/assets/5c407faf-333e-49c6-ba8c-b18087b6e01c)
         
-
 ## 4. Como Abrir o Projeto no Quartus (Síntese e Gravação)
 
 ### Para compilar o projeto completo e realizar a atribuição dos pinos físicos para a placa DE2-115, você não deve abrir os arquivos .v individualmente. Utilize o arquivo de projeto do Quartus.
